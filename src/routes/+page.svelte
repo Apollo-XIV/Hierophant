@@ -1,6 +1,6 @@
 <!--Homepage for Hierophant-->
 <div id="main">
-    <div id="logo"><h1>Welcome to Hierophant</h1></div>
+    <div id="logo"><h1>Hierophant</h1></div>
     <div id="copy">
         <h2>About Hierophant</h2>
         <p>Welcome to Hierophant, my personal blog where I explore the world of DevOps and technology as a learning apprentice. Here, I share my personal experiences, insights, and projects related to the latest trends and practices in the field.</p>
@@ -64,6 +64,7 @@
         text-align: center;
         /*background-color: rgb(219, 175, 30);*/
         height: min-content;
+        background-color: #0000008f;
         
     }
 
