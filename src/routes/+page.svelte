@@ -41,7 +41,7 @@
     }
 
     div#logo {
-        background-image: url('Logo faint.png');
+        background-image: url('Logofaint.png');
         background-size: 300px;
         background-repeat: no-repeat;
         background-position: center;
