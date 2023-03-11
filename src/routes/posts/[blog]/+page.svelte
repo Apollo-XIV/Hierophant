@@ -6,7 +6,6 @@
 <div class="content-styling">
     <Markdown {md} />
 </div>
-<h1>testing</h1>
 
 <style>
     @import url('https://fonts.cdnfonts.com/css/futura-std-4');

@@ -15,6 +15,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@prisma/client": "^4.11.0",
 		"prisma": "^4.11.0",
 		"svelte-exmarkdown": "^2.0.0"
 	}

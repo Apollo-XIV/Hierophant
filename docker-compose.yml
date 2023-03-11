@@ -1,4 +1,8 @@
 version: "0.1"
 services:
-  user:
+  frontend:
+    image: apolloxiv/hierophant
+  db:
+    image: mongo:latest
+    
     
