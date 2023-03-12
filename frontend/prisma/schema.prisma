@@ -1,0 +1,17 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model posts {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  abstract String
+  slug     String @unique
+  title    String
+  url      String
+}

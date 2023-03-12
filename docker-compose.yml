@@ -1,0 +1,18 @@
+version: "0.1"
+services:
+  frontend:
+    build:
+      context: './frontend'
+      network: host
+    ports:
+      - "5173:5173"
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+  nginx:
+    build: './nginx'
+    ports:
+      - "80:80"
+    
+    
