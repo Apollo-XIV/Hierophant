@@ -4,6 +4,7 @@
     <div id="copy">
         <h2>About Hierophant</h2>
         <p>Welcome to Hierophant, my personal blog where I explore the world of DevOps and technology as a learning apprentice. Here, I share my personal experiences, insights, and projects related to the latest trends and practices in the field.</p>
+        <p><a href="/posts">Check out posts -></a></p>
         <h3>Who am I</h3>
         <p>I am a passionate technology enthusiast with a keen interest in DevOps and automation. I am currently an apprentice who loves to tinker with technology and explore new tools and practices. Sharing the things I know and making the field more accessible is incredibly important for me, so as I learn more things and develop my personal skills, I plan to post here and share any tips or tricks I found along the way.</p>
         <h3>What I do</h3>
@@ -71,8 +72,9 @@
     h2, h3 {
         font-family: 'IBM Plex Sans Kr';
     }
-    p {
+    p, a {
         font-family: 'Futura Std';
+        color: white;
     }
 
     ul {

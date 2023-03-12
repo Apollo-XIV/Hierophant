@@ -30,9 +30,7 @@
         background-color: transparent;
         padding: 10px;
     }
-    .post:hover {
-        background-color: rgba(255, 255, 255, 0.073);
-    }
+    
 
     h1 {
         text-align: center;
@@ -44,6 +42,10 @@
         font-family: 'IBM Plex Sans Kr';
         text-decoration: none;
         color: white;
+    }
+
+    .post:hover {
+        background-color: rgba(255, 255, 255, 0.073);
     }
 
     p {

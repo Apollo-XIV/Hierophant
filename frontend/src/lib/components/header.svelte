@@ -40,6 +40,7 @@
     ul#menu li:not(#logo) a {
         font-family: 'Monosphere Personal Use', sans-serif;
         font-size: large;
+        transform: translate(-50px 50px);
     }
 
     header {
