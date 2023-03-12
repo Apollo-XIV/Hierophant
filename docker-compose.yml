@@ -4,15 +4,28 @@ services:
     build:
       context: './frontend'
       network: host
+    networks:
+      - hieronet
     ports:
       - "5173:5173"
   db:
     image: mongo:latest
+    networks:
+      - hieronet
     ports:
       - "27017:27017"
   nginx:
     build: './nginx'
+    networks:
+      - hieronet
     ports:
       - "80:80"
+    depends_on:
+      - frontend
+    links:
+      - "frontend:test2"
+networks:
+  hieronet:
+    driver: bridge
     
     
