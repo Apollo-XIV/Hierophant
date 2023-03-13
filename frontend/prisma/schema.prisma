@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "http://db:27017/"
+  url      = env("MONGO_DB_URL")
 }
 
 model posts {

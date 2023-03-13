@@ -25,7 +25,6 @@ export const load = async ({fetch, params}) => {
     try {
         const response = await s3Client.send(command);
         content = await response.Body.transformToString();
-        console.log(content);
     } catch (err) {
         console.error(err);
         throw error(500, "Could not find post content")

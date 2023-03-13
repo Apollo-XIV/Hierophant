@@ -5,8 +5,8 @@ const s3Client = new S3({
     endpoint: "https://ams3.cdn.digitaloceanspaces.com",
     region: "us-east-1",
     credentials: {
-        accessKeyId: 'DO00HDK8RDUKGYE6EDEH',
-        secretAccessKey: 'NX5PxkdLNGqoXz0omhP0+iGF44bgfy1jXrdTejLmRIY'
+        accessKeyId: process.env.S3_ACCESS_ID,
+        secretAccessKey: process.env.S3_ACCESS_KEY
     }
 });
 
