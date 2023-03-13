@@ -1,4 +1,4 @@
-![logo](https://hierophant.ams3.cdn.digitaloceanspaces.com/static%2Fimages%2FLogofaint.png)
+![logo](https://hierophant.ams3.cdn.digitaloceanspaces.com/static%2Fimages%2FLogofaint.png | width=100)
 # Hierophant
 This is the sourcecode for my blog and (future) quiz-site, Hierophant. I'm using docker and sveltekit to run it
 
