@@ -30,7 +30,7 @@
     @import url('https://fonts.cdnfonts.com/css/monosphere-personal-use');
     div#main {
         background-color: black;
-        background-image: url('bgimage.png');
+        background-image: url('/bgimage.png');
         background-repeat: no-repeat;
         background-size: 40vw;
     }
@@ -41,7 +41,7 @@
     }
 
     div#logo {
-        background-image: url('Logofaint.png');
+        background-image: url('/Logofaint.png');
         background-size: 300px;
         background-repeat: no-repeat;
         background-position: center;
