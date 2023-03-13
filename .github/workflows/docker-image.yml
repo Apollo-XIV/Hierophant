@@ -55,7 +55,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
     - name: Setup SSH key
-      run: ssh-add - <<< ${{ secrets.SSH_PRIVATE_KEY }}
+      run: ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
     - name: run compose on remote
       run: DOCKER_HOST="ssh://root@161.35.212.7" docker compose up
       
