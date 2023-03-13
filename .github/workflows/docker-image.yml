@@ -1,8 +1,9 @@
 name: Build & Push Images to Docker Hub
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
 
@@ -50,6 +51,7 @@ jobs:
   
   pull-images-and-run:
     runs-on: ubuntu-latest
+    environment: malbolge-1
     needs: [build-nginx-and-push, build-frontend-and-push]
     steps:
     - name: Checkout repo
