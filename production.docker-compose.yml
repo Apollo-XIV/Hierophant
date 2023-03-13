@@ -1,8 +1,6 @@
 services:
   frontend:
-    build:
-      context: './frontend'
-      network: host
+    image: 'apolloxiv/frontend'
     ports:
       - "5173:5173"
   db:
@@ -16,7 +14,7 @@ services:
       - db_data:/data/db
 
   nginx:
-    build: './nginx'
+    build: 'apolloxiv/nginx'
     ports:
       - "80:80"
     depends_on:
