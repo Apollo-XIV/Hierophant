@@ -62,4 +62,4 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: run compose on remote
       run: DOCKER_HOST="ssh://root@161.35.212.7" docker compose up
-# updates
+# update
