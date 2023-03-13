@@ -51,7 +51,7 @@ jobs:
   
   pull-images-and-run:
     runs-on: ubuntu-latest
-    environment: malbolge-1
+    environment: empress-1
     needs: [build-nginx-and-push, build-frontend-and-push]
     steps:
     - name: Checkout repo
@@ -61,5 +61,5 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: run compose on remote
-      run: DOCKER_HOST="ssh://root@161.35.212.7" docker compose up
+      run: DOCKER_HOST="ssh://root@${{ vars.ENV_IP_ADDR }}" docker compose up
 # update
