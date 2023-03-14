@@ -3,6 +3,9 @@
     export let data;
     let md = data.content;
 </script>
+<svelte:head>
+	<title>{data.title} | Hierophant</title> 
+</svelte:head>
 <div class="content-styling">
     <Markdown {md} />
 </div>

@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>About | Hierophant</title> 
+</svelte:head>
+
 <div id="main">
     <div id="logo"><h1>Hierophant</h1></div>
     <div id="copy">

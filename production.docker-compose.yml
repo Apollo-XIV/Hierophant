@@ -14,7 +14,7 @@ services:
       - db_data:/data/db
 
   nginx:
-    build: 'apolloxiv/nginx'
+    image: 'apolloxiv/nginx'
     ports:
       - "80:80"
     depends_on:

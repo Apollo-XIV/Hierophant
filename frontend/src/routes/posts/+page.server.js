@@ -1,4 +1,5 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import { error } from "@sveltejs/kit"
 import { PrismaClient } from "@prisma/client";
 
 
@@ -8,8 +9,8 @@ export async function load() {
     await prisma.$connect();
     const res = await prisma.posts.findMany();
     prisma.$disconnect();
-    if (!res) {
-        return error(404, "Could not find any posts");
+    if (res.length == 0) {
+        throw error(404, "Could not find any posts");
     }
     return {
         summaries: res.map((post) => ({

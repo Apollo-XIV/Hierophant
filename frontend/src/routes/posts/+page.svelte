@@ -1,6 +1,9 @@
 <script>
     export let data;
 </script>
+<svelte:head>
+	<title>Posts | Hierophant</title> 
+</svelte:head>
 <h1>Posts</h1>
 <div class="posts">
     {#each data.summaries as {slug, title, abstract}}
@@ -24,6 +27,8 @@
     .posts {
         padding-left: 300px;
         padding-right: 300px;
+        padding-bottom: 100px;
+        padding-top: 100px;
     }
 
     .post {
