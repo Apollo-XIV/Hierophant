@@ -1,5 +1,12 @@
 <script>
     import Featurebox from '$lib/components/featurebox.svelte';
+
+    let data = {
+        title: "test",
+        slug: "test",
+        abstract: "test",
+        icon: "\uF4CA"
+    }
 </script>
 
 
@@ -8,7 +15,7 @@
     <p>This is the admin page for Hierophant. Here you can manage posts, create new ones, upload images and files, and more</p>
 </div>
 
-<Featurebox />
+<Featurebox {data}/>
 
 
 <style>

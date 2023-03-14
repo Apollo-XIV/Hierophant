@@ -34,6 +34,7 @@
     .post {
         background-color: transparent;
         padding: 10px;
+        padding-left: 20px;
     }
     
 
@@ -51,6 +52,7 @@
 
     .post:hover {
         background-color: rgba(255, 255, 255, 0.073);
+        border-radius: 10px;
     }
 
     p {
