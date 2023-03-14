@@ -46,11 +46,12 @@
 
     div#logo {
         background-image: url('/Logofaint.png');
-        background-size: 300px;
+        background-size: 400px;
         background-repeat: no-repeat;
         background-position: center;
         padding: 50px;
         width: fit-content;
+        height: 300px;
         align-self: center;
         margin: auto;
         padding-top: 100px;
@@ -67,8 +68,9 @@
         font-family: 'Monosphere Personal Use';
         text-align: center;
         /*background-color: rgb(219, 175, 30);*/
-        height: min-content;
+        height: 100%;
         background-color: #0000008f;
+        line-height: 300px;
         
     }
 

@@ -31,6 +31,5 @@ export const load = async ({fetch, params}) => {
         console.error(err);
         throw error(500, "Could not find post content")
     }
-    let title = res.title;
-    return {content, title};
+    return {content, res};
 }

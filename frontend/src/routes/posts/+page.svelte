@@ -4,31 +4,47 @@
 <svelte:head>
 	<title>Posts | Hierophant</title> 
 </svelte:head>
-<h1>Posts</h1>
-<div class="posts">
-    {#each data.summaries as {slug, title, abstract}}
-    <div class="post">
-        <h2><a href="posts/{slug}">{title}  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-          </svg></a></h2>
-        <p>{abstract}</p>
-    </div>
-    {/each}
+<div id="content">
 </div>
-
+<h1>Posts</h1>
+    <div class="posts">
+        {#each data.summaries as {slug, title, abstract}}
+        <div class="post">
+            <h2><a href="posts/{slug}">{title}  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+            </svg></a></h2>
+            <p>{abstract}</p>
+        </div>
+        {/each}
+    </div>
 <style>
     @import url('https://fonts.cdnfonts.com/css/futura-std-4');
     @import url('https://fonts.cdnfonts.com/css/ibm-plex-sans-kr');
     @import url('https://fonts.cdnfonts.com/css/monosphere-personal-use');
     :global(body) {
         color: white;
+        
+        
     }
+
+    #content {
+        background-image: url('/jester.png');
+        background-size: 60vw;
+        background-repeat: no-repeat;
+        background-position:bottom 100px right 0px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
     .posts {
         padding-left: 300px;
         padding-right: 300px;
         padding-bottom: 100px;
         padding-top: 100px;
+        height: max-content;
     }
 
     .post {

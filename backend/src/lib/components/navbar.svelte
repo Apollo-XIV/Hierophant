@@ -1,3 +1,4 @@
+<div id="context">
 <div id="navbar">
     <ul>
         <li><a href='/posts'>View All Posts</a></li>
@@ -7,6 +8,8 @@
         <li><a href='/metering'>Metering</a></li>
     </ul>
 </div>
+</div>
+
 
 <style>
 
@@ -19,10 +22,15 @@
     #navbar {
         width: 300px;
         height: 100%;
-        background-color: rgb(43, 47, 51);
+        backdrop-filter: blur(100px);
+        color: transparent;
         position: fixed;
         left: 0;
         top: 50px;
+    }
+
+    #context {
+        background-image: url('/city.png');
     }
     ul li {
         list-style-type: none;
