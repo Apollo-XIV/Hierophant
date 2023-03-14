@@ -36,14 +36,9 @@
         opacity: 0.6;
     }
 
-
     ul#menu li:not(#logo) a {
         font-family: 'Monosphere Personal Use', sans-serif;
         font-size: large;
-    }
-
-    .test {
-        margin-top: 50px;
     }
 
     header {

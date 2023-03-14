@@ -15,6 +15,8 @@ export const load = async ({fetch, params}) => {
     if (!res) {
         throw error(404, "Could not find this post")
     }
+    console.log(res.url);
+    console.log(process.env.S3_ACCESS_KEY);
     // Config CDN Req.
     const command = new GetObjectCommand({
         Bucket: "hierophant",
