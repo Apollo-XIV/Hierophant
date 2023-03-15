@@ -3,6 +3,10 @@
     import Nav from '$lib/components/navbar.svelte';
     import Footer from '$lib/components/footer.svelte';
 </script>
+
+<svelte:head>
+    <title>Admin | Hierophant</title>
+</svelte:head>
 <div id="header">
     <Header />
 </div>
@@ -34,6 +38,8 @@
         overflow-y: auto;
         display: flex;
         flex-direction: column;
+        scrollbar-width: thin;
+        scrollbar-color: grey transparent;
     }
 
     #content {

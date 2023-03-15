@@ -28,13 +28,15 @@
     @import url('https://fonts.cdnfonts.com/css/futura-std-4');
 
     #wrapper {
-        margin: 100px 300px 100px 300px;
+        margin: 100px 200px 100px 200px;
     }
 
     #features {
+        margin-top: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 30px;
     }
 
