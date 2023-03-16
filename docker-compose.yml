@@ -11,20 +11,20 @@ services:
       - "5174:5173"
     volumes:
       - type: bind
-        source: 'C:\Users\alex.crease\Documents\Git\Hierophant\backend'
+        source: './backend'
         target: '/usr/src/app/'
       - type: volume
         source: exclude
         target: '/usr/src/app/node_modules'
-  db:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASS}
-    volumes:
-      - db_data:/data/db
+  #db:
+  #  image: mongo:latest
+  #  ports:
+  #    - "27017:27017"
+  #  environment:
+  #    - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+  #    - MONGO_INITDB_ROOT_PASSWORD=${DB_PASS}
+  #  volumes:
+  #    - db_data:/data/db
 
   nginx:
     build: './nginx'

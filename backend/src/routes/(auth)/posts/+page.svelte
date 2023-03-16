@@ -25,7 +25,7 @@
     @import url('https://fonts.cdnfonts.com/css/monosphere-personal-use');
 
     #wrapper {
-        margin: 20px 100px 20px 100px;
+        margin: 100px 100px 100px 100px;
     }
 
     .posts {
