@@ -1,12 +1,23 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 import { PrismaClient } from "@prisma/client";
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { s3Client } from "$lib/storage/s3Client";
+import { fetchObject, uploadObject, deleteObject } from "$lib/modules/storage/storage.js";
 
 const prisma = new PrismaClient();
 
 export const load = async ({fetch, params}) => {
+    let content;
+    if (params.post === "new") {
+        const res = {
+            id: "new",
+            title: "",
+            abstract: "",
+            slug: "",
+            url :""
+        };
+        return({content, res})
+    }
+
     // Connect to ORM & DB
     await prisma.$connect();
     const res = await prisma.posts.findUnique({where: {slug: params.post},});
@@ -15,44 +26,80 @@ export const load = async ({fetch, params}) => {
     if (!res) {
         throw error(404, "Could not find this post")
     }
-    console.log(res.url);
-    console.log(process.env.S3_ACCESS_KEY);
-    // Config CDN Req.
-    const command = new GetObjectCommand({
+    const getparams = {
         Bucket: "hierophant",
         Key: res.url
-    })
-    // Run CDN Req.
-    let content
-    try {
-        const response = await s3Client.send(command);
-        content = await response.Body.transformToString();
-    } catch (err) {
-        console.error(err);
-        throw error(500, "Could not find post content")
-    }
+    };
+
+    content = fetchObject(getparams);
+
     return {content, res};
 }
 
 export const actions = {
     update: async ({request}) => {
-        console.log("success")
         let data = Object.fromEntries(await request.formData())
-        console.log(data.slug, data.title, data.abstract, data.content)
         prisma.$connect();
+
+        if (data.id === "new") {            
+            const res = await prisma.posts.create({
+                data: {
+                    title: data.title,
+                    slug: data.slug,
+                    abstract: data.abstract,
+                    url: `posts/${data.slug}`
+                }
+            })
+            prisma.$disconnect();
+            const params = {
+                Bucket: "hierophant",
+                Key: `posts/${data.slug}`,
+                Body: data.content,
+                ACL: "public-read",
+                Metadata: {"Content-type": "text/html"}
+            };
+
+            let response = await uploadObject(params);
+            
+            console.log(response);
+            
+            throw redirect(303, ("/posts/"+data.slug))
+        }
+        
+        
+        const oid = (await prisma.posts.findUnique({where: { id: data.id }})).url;
+        console.log("oid: "+ oid);
+        
+        
+        
         const res = await prisma.posts.update({
             where: {id: data.id},
             data: {
                 title: data.title,
                 slug: data.slug,
-                abstract: data.abstract
+                abstract: data.abstract,
+                url: `posts/${data.slug}`
             }
         })
         prisma.$disconnect();
-        console.log(res)
-        return {
-            success: true
+        const params = {
+            Bucket: "hierophant",
+            Key: `posts/${data.slug}`,
+            Body: data.content,
+            ACL: "public-read",
+            Metadata: {"Content-type": "text/html"}
+        };
+
+        if (oid != data.url) {
+            let response = await deleteObject({Bucket: "hierophant", Key: oid});
+            console.log(response);
         }
+        let response = await uploadObject(params);
+        
+        console.log(response);
+        
+        throw redirect(303, ("/posts/"+data.slug))
+
     }
 
 }

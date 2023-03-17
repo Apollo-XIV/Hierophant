@@ -1,7 +1,7 @@
 <header>
     <nav>
         <ul id=menu>
-            <li style="font-family: 'Grozery', 'D050000L'; font-size: 20px; margin-right: 10px;" id="logo"><a href='/'>Hierophant</a></li>
+            <li style="font-family: 'Grozery', 'Monosphere Personal Use'; font-size: 20px; margin-right: 10px;" id="logo"><a href='/'>Hierophant</a></li>
             <li class="test"><a href='/'>About</a></li>
             <li class="test"><a href="/posts">Posts</a></li>
         </ul>

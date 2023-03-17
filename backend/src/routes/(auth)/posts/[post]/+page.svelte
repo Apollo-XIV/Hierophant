@@ -26,7 +26,11 @@
 </script>
 
 <div id="wrapper">
-    <h1>Edit Post</h1>
+    {#if data.res.id === "new"}
+        <h1>Create Post</h1>
+    {:else}
+        <h1>Edit Post</h1>
+    {/if}
     {#if form?.success}
         Success!
     {/if}

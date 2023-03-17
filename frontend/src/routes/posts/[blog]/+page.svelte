@@ -9,7 +9,7 @@
 
 <div id="abstract">{data.res.abstract}</div>
 <div class="content-styling">
-    <Markdown {md} />
+    {@html md}
 </div>
 
 
@@ -21,7 +21,7 @@
     @import url('https://fonts.cdnfonts.com/css/redaction');
 
     #abstract {
-        font-family: 'Redaction 70';
+        font-family: 'Redaction 70', 'Courier New', Courier, monospace;
         font-size: 250px;
         position: absolute;
         top: 30px;
