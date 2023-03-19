@@ -6,7 +6,7 @@ import { fetchObject, uploadObject, deleteObject } from "$lib/modules/storage/st
 const prisma = new PrismaClient();
 
 export const load = async ({fetch, params}) => {
-    let content;
+    let content = "";
     if (params.post === "new") {
         const res = {
             id: "new",

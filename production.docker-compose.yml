@@ -3,22 +3,20 @@ services:
     image: 'apolloxiv/frontend'
     ports:
       - "5173:5173"
-  db:
-    image: mongo:latest
+
+  backend:
+    image: 'apolloxiv/backend'
     ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=rootpassword
-    volumes:
-      - db_data:/data/db
+      - 5174:5173
 
   nginx:
     image: 'apolloxiv/nginx'
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - frontend
-
-volumes:
-  db_data:
+    volumes:
+      - type: bind
+        source: /etc/ssl/
+        target: /etc/ssl/

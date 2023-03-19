@@ -31,9 +31,6 @@
     {:else}
         <h1>Edit Post</h1>
     {/if}
-    {#if form?.success}
-        Success!
-    {/if}
     <form method="POST" action="?/update" id="update">
         <p class="slug">/posts/<input name="slug" type="text" class="" value="{slug}" readonly /></p>
         <input name="title" type="text" class="valInput" id="title" bind:value={title} placeholder="Enter a title..."/>
@@ -41,7 +38,7 @@
         <Editor bind:value={content} id="Editor" {conf} scriptSrc="../../node_modules/tinymce/tinymce.min.js"/>
         <input name="content" type="hidden" value={content} />
         <input name="id" type="hidden" value={id} />
-        <input type="submit"/>
+        <input id="submit" type="submit" value="Save Post"/>
     </form>
     
 </div>
@@ -53,6 +50,18 @@
 
     #wrapper {
         margin: 100px 100px 100px 100px;
+    }
+
+    #submit { 
+        border: none;
+        background-color: rgb(116, 69, 128);
+        font-family: 'Courier New', Courier, monospace;
+        border-radius: 5px;
+        color: white;
+        padding: 10px;
+        font-size: medium;
+        margin-top: 5px;
+        float: right;
     }
 
     .valInput {
@@ -85,12 +94,16 @@
         font-family:'Courier New', Courier, monospace;
         font-size: small;
         border: none;
+        width:fit-content;
+        overflow-x: visible;
     }
 
     .slug input {
         border: none;
         font-family: 'Courier New', Courier, monospace;
         font-size: small;
+        width: 1000px;
+        overflow-x: visible;
         
     }
 
