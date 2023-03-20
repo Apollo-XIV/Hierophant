@@ -15,6 +15,7 @@ export const load = async ({fetch, params}) => {
             slug: "",
             url :""
         };
+        console.log({content, res})
         return({content, res})
     }
 

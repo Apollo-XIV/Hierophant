@@ -24,7 +24,7 @@
     </div>
     <ul>
         <li><a class="hover-underline" class:is-active={path.includes("/posts") && path != "/posts/new"} href='/posts'>View All Posts</a></li>
-        <li><a class="hover-underline" class:is-active={path === "/posts/new"} href='/posts/new'>Create New Post</a></li>
+        <li><a data-sveltekit-reload style="hover-underline" class:is-active={path === "/posts/new"} href='/posts/new'>Create New Post</a></li>
         <li><a class="hover-underline" class:is-active={path === "/media"} href='/media'>Upload Media</a></li>
         <li><a class="hover-underline" class:is-active={path === "/moderation"} href='/moderation'>Moderation</a></li>
         <li><a class="hover-underline" class:is-active={path === "/metering"} href='/metering'>Metering</a></li>
