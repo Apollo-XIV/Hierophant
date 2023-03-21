@@ -1,9 +1,7 @@
 import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3 } from "@aws-sdk/client-s3";
 
-const s3Client = new S3({
-    forcePathStyle: false,
-    endpoint: "https://ams3.digitaloceanspaces.com",
-    region: "us-east-1",
+const s3Client = new S3({region: "eu-north-1",
+    endpoint: "https://s3.eu-north-1.amazonaws.com",
     credentials: {
         accessKeyId: process.env.S3_ACCESS_ID,
         secretAccessKey: process.env.S3_ACCESS_KEY
@@ -54,7 +52,6 @@ const uploadObject = async (params) => {
         Bucket: "hierophant",
         Key: "posts/FILENAME.EXT",
         Body: OBJECT,
-        ACL: "private",
         Metadata: {any meta data K-V pairs}
     };
     */

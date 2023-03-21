@@ -28,7 +28,7 @@ export const load = async ({fetch, params}) => {
         throw error(404, "Could not find this post")
     }
     const getparams = {
-        Bucket: "hierophant",
+        Bucket: "hierophant-1",
         Key: res.url
     };
 
@@ -53,10 +53,9 @@ export const actions = {
             })
             prisma.$disconnect();
             const params = {
-                Bucket: "hierophant",
+                Bucket: "hierophant-1",
                 Key: `posts/${data.slug}`,
                 Body: data.content,
-                ACL: "public-read",
                 Metadata: {"Content-type": "text/html"}
             };
 
@@ -84,15 +83,14 @@ export const actions = {
         })
         prisma.$disconnect();
         const params = {
-            Bucket: "hierophant",
+            Bucket: "hierophant-1",
             Key: `posts/${data.slug}`,
             Body: data.content,
-            ACL: "public-read",
             Metadata: {"Content-type": "text/html"}
         };
 
         if (oid != data.url) {
-            let response = await deleteObject({Bucket: "hierophant", Key: oid});
+            let response = await deleteObject({Bucket: "hierophant-1", Key: oid});
             console.log(response);
         }
         let response = await uploadObject(params);
