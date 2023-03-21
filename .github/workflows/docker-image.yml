@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
 
@@ -26,6 +27,27 @@ jobs:
       with:
         context: ./frontend
         tags: apolloxiv/frontend
+        push: true
+        
+  build-backend-and-push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: apolloxiv
+        password: ${{ secrets.DOCKER_HUB_API_KEY }}
+      
+    - name: Build and push the Docker image
+      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      with:
+        context: ./backend
+        tags: apolloxiv/backend
         push: true
         
   build-nginx-and-push:
@@ -52,7 +74,7 @@ jobs:
   pull-images-and-run:
     runs-on: ubuntu-latest
     environment: empress-1
-    needs: [build-nginx-and-push, build-frontend-and-push]
+    needs: [build-nginx-and-push, build-frontend-and-push, build-backend-and-push]
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
