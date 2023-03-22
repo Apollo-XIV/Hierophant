@@ -4,6 +4,7 @@
 </script>
 
 <svelte:head>
+    <title>Login | Hierophant</title>
 </svelte:head>
 
 <div id="wrapper">
