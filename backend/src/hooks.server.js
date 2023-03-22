@@ -15,7 +15,7 @@ async function authorization({event, resolve}) {
 			throw redirect(303, '/login');
 		}
 		await prisma.$connect;
-		const res = await prisma.users.findUnique({where: {email: session.user.email},});
+		const res = await prisma.users.findUnique({where: {email: session.user.email}});
 		if (!res || res.admin == false) {
 			throw redirect(303, '/login');
 		}
