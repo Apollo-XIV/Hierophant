@@ -7,7 +7,7 @@
     <nav>
         <ul id=menu>
             <li style="font-family: 'Grozery', 'D050000L'; font-size: 20px; margin-right: 10px; float: left; padding: 10px 0px 10px 0px" id="logo"><a href='/'>Hierophant | Admin</a></li>
-            <li style="" id="identity"><span style="">Logged in as {$page.data.session.user?.name} </span><img id="pp" style="" src={$page.data.session.user?.image}/> | <a style="cursor: pointer" on:click={() => signOut()}>Sign Out</a></li>
+            <li style="" id="identity"><span style="">Logged in as {$page.data.session.user?.name} </span><img alt="profile" id="pp" style="" src={$page.data.session.user?.image}/> | <button style="cursor: pointer" on:click={() => signOut()}>Sign Out</button></li>
         </ul>
     </nav>
 </header>
