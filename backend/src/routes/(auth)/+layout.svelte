@@ -7,6 +7,7 @@
 <svelte:head>
     <title>Admin | Hierophant</title>
 </svelte:head>
+
 <div id="header">
     <Header />
 </div>
