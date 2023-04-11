@@ -17,7 +17,8 @@ services:
       - GITHUB_ID=${GITHUB_ID}
       - GITHUB_SECRET=${GITHUB_SECRET}
       - AUTH_SECRET=${AUTH_SECRET}
-      - ORIGIN=${BE_ORIGIN}
+      - PROTOCOL_HEADER=x-forwarded-proto
+      - HOST_HEADER=x-forwarded-host
       - AUTH_TRUST_HOST=true
 
     ports:
