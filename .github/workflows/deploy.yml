@@ -99,6 +99,6 @@ jobs:
     environment: malbolge
     steps:
     - name: Setup SSH key
-      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > secret.pem
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/secret.pem
     - name: run package
-      run: ssh ec2-user@${{ secrets.ENV_IP_ADDR }} -i secret.pem "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
+      run: ssh ec2-user@${{ secrets.ENV_IP_ADDR }} -i ~/secret.pem "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
