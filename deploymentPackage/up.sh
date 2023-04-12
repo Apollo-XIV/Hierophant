@@ -1,1 +1,1 @@
-sudo docker compose -f prod.yml up --detach
+sudo docker compose up --detach
