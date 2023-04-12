@@ -101,5 +101,6 @@ jobs:
     - uses: appleboy/ssh-action@v0.1.9
       with:
         host: ${{ secrets.ENV_IP_ADDR }}
+        username: ec2-user
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
