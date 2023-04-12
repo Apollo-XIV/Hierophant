@@ -88,7 +88,7 @@ jobs:
         target-server: ${{ secrets.ENV_IP_ADDR }}
         remote-user: ec2-user
         private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        destination-path: ~/pkg/
+        destination-path: /home/deployments/pkg-${{ github.event.repository.updated_at }}/
         source-path: ./deploymentPackage/
 
 # WAIT FOR ALL OTHER JOBS TO FINISH
@@ -103,4 +103,4 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: run package
-      run: sudo sh ~/pkg/up.sh
+      run: sudo sh /home/deployments/pkg-${{ github.event.repository.updated_at }}/up.sh
