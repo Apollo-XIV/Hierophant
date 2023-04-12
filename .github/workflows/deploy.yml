@@ -73,38 +73,29 @@ jobs:
 
 # Create .env file in /deploymentPackage/
 
-  create-environment-file:
+  create-and-upload-pkg:
     runs-on: ubuntu-latest
-    steps:
-    - name: Create .env file
-      run: touch ./deploymentPackage/.env
-    - run: echo "${{ secrets.ENV_FILE }}" > ./deploymentPackage/.env
-
-# Copy prod.yml to /deploymentPackage/docker-compose.yml
-  copy-compose-file-to-deploy-pkg:
-    runs-on: ubuntu-latest
+    environment: malbolge
     steps:
     - uses: actions/checkout@v3
+    - name: Create .env file
+      run: touch deploymentPackage/.env
+    - name: Copy contents
+      run: echo "${{ secrets.ENV_FILE }}" > deploymentPackage/.env
     - run: cat prod.yml > ./deploymentPackage/docker-compose.yml
-
-# Upload deploymentPackage/ to webserver using web-deploy
-
-  web-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: SamKirkland/web-deploy@v1
-        with:
-          target-server: ${{ secrets.ENV_IP_ADDR }}
-          remote-user: ec2-user
-          private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          destination-path: ~/pkg/
+    - uses: SamKirkland/web-deploy@v1
+      with:
+        target-server: ${{ secrets.ENV_IP_ADDR }}
+        remote-user: ec2-user
+        private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        destination-path: ~/pkg/
+        source-path: ./deploymentPackage/
 
 # WAIT FOR ALL OTHER JOBS TO FINISH
 
   activate-package:
     runs-on: ubuntu-latest
-    needs: [build-nginx-and-push, build-frontend-and-push, build-backend-and-push, web-deploy, copy-compose-file-to-deploy-pkg, create-environment-file,]
+    needs: [build-nginx-and-push, build-frontend-and-push, build-backend-and-push, create-and-upload-pkg]
     steps:
     - name: Setup SSH key
       uses: webfactory/ssh-agent@v0.7.0
