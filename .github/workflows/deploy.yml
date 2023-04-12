@@ -103,4 +103,5 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: run package
-      run: sudo sh /home/deployments/pkg-${{ github.run_number }}/up.sh
+      run: cd /home/deployments/pkg-${{ github.run_number }}/
+    - run: sudo sh up.sh
