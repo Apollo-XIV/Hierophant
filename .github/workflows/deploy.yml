@@ -99,8 +99,6 @@ jobs:
     environment: malbolge
     steps:
     - name: Setup SSH key
-      uses: webfactory/ssh-agent@v0.7.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: echo ${{ secrets.SSH_PRIVATE_KEY }} > secret
     - name: run package
-      run: ssh ec2-user@${{ secrets.ENV_IP_ADDR }} 'cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh'
+      run: ssh ec2-user@${{ secrets.ENV_IP_ADDR }} -i secret "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
