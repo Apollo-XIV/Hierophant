@@ -25,6 +25,7 @@ export const load = async ({fetch, params}) => {
     try {
         content = fetchObject(getparams)
     } catch (err) {
+        console.log(err)
         console.error(err);
         throw error(500, "Could not find post content")
     }

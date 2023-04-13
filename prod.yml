@@ -22,7 +22,7 @@ services:
       - AUTH_TRUST_HOST=true
 
     ports:
-      - 5174:3000
+      - 5174:5173
 
   nginx:
     image: apolloxiv/nginx
