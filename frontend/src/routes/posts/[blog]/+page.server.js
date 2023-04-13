@@ -1,8 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { error } from "@sveltejs/kit";
 import { PrismaClient } from "@prisma/client";
-import { GetObjectCommand } from "@aws-sdk/client-s3";
-import { s3Client } from "../../../lib/storage/s3Client";
+import { fetchObject } from "$lib/modules/storage/storage.js";
 
 const prisma = new PrismaClient();
 
@@ -15,21 +14,20 @@ export const load = async ({fetch, params}) => {
     if (!res) {
         throw error(404, "Could not find this post")
     }
-    console.log(res.url);
-    console.log(process.env.S3_ACCESS_KEY);
+
     // Config CDN Req.
-    const command = new GetObjectCommand({
-        Bucket: "hierophant",
+    const getparams = {
+        Bucket: "hierophant-1",
         Key: res.url
-    })
+    }
     // Run CDN Req.
     let content
     try {
-        const response = await s3Client.send(command);
-        content = await response.Body.transformToString();
+        content = fetchObject(getparams)
     } catch (err) {
         console.error(err);
         throw error(500, "Could not find post content")
     }
+
     return {content, res};
 }
