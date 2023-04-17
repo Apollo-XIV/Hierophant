@@ -100,6 +100,7 @@ jobs:
     steps:
     - uses: appleboy/ssh-action@v0.1.9
       with:
+        command_timeout: 20m
         host: ${{ secrets.ENV_IP_ADDR }}
         username: ec2-user
         key: ${{ secrets.SSH_PRIVATE_KEY }}
