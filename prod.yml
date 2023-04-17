@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: apolloxiv/frontend
+    image: apolloxiv/frontend:latest
     environment:
       - MONGO_DB_URL=${MONGO_DB_URL}
       - S3_ACCESS_ID=${S3_ACCESS_ID}
@@ -9,7 +9,7 @@ services:
       - "5173:5173"
 
   backend:
-    image: apolloxiv/backend
+    image: apolloxiv/backend:latest
     environment:
       - MONGO_DB_URL=${MONGO_DB_URL}
       - S3_ACCESS_ID=${S3_ACCESS_ID}
@@ -25,7 +25,7 @@ services:
       - 5174:5173
 
   nginx:
-    image: apolloxiv/nginx
+    image: apolloxiv/nginx:latest
     ports:
       - "80:80"
       - "443:443"
