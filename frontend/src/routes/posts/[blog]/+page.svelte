@@ -66,7 +66,7 @@
         margin-left: -20px;
     }
 
-    .content-styling :global(ul) {
+    .content-styling :global(ul),:global(li) {
         list-style-type: none;
     }
 
