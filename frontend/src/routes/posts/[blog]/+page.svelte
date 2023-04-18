@@ -46,7 +46,7 @@
         margin-bottom: 100px;
     }
 
-    .content-styling :global(p) {
+    .content-styling :global(p),:global(li) {
         font-family: 'Futura Std';
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
@@ -58,6 +58,12 @@
         padding-top: 100px;
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
+    }
+
+    .content-styling :global(ul li:before) {
+        content: '\2014';
+        position: absolute;
+        margin-left: -20px;
     }
 
     .content-styling :global(h2),:global(h3),:global(h4) {
