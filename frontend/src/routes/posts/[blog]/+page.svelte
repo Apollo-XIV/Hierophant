@@ -13,6 +13,7 @@
 
 <div id="abstract">{data.res.abstract}</div>
 <div class="content-styling">
+    <a href="/posts">&lt- Return to Posts</a>
     {@html md}
 </div>
 
@@ -46,8 +47,15 @@
     .content-styling {
         color: white;
         padding-left: 300px;
+        padding-top: 100px;
         padding-right: 300px;
         margin-bottom: 100px;
+    }
+
+    .content-styling :global(a) {
+        font-family: 'Futura Std';
+        color: white;
+        font-size: larger;
     }
 
     .content-styling :global(p),:global(li) {
@@ -59,7 +67,7 @@
     .content-styling :global(h1) {
         font-family: 'Monosphere Personal Use';
         text-align: center;
-        padding-top: 100px;
+        padding-top: 30px;
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
     }
@@ -91,6 +99,8 @@
         display: block;
         border-radius: 30px;
         box-shadow: 5px 5px 86px 20px #000;
+        margin-top: 50px;
+        margin-bottom: 10px;
     }
 
 </style>

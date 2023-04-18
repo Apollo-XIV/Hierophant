@@ -9,6 +9,7 @@ services:
       - S3_ACCESS_KEY=${S3_ACCESS_KEY}
     ports:
       - "5173:5173"
+
   backend:
     build: './backend'
     ports:

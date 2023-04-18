@@ -5,9 +5,10 @@ generator client {
 
 datasource db {
   provider = "mongodb"
+  //test
   url      = env("MONGO_DB_URL")
 }
-
+//test
 model posts {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   abstract String
