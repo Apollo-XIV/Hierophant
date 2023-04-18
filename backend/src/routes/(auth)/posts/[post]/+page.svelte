@@ -12,6 +12,25 @@
         promotion: false,
         placeholder: 'Write your post here',
         menubar: false,
+        plugins: 'image autosave link',
+        toolbar: 'undo redo | styles | bold italic underline | link image',
+        file_picker_types: 'image',
+        file_picker_callback: (callback, value, meta) => {
+            if (meta.filetype == 'image') {
+                var input = document.getElementById('my-file');
+                input.click();
+                input.onchange = function () {
+                    var file = input.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        callback(e.target.result, {
+                            alt: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+            };
+        },
         statusbar: false,
     }
 
@@ -24,7 +43,7 @@
 
     $: slug = slugged(title);
 </script>
-
+<input id="my-file" type="file" name="my-file" style="display: none;" onchange="" />
 <div id="wrapper">
     {#if data.res.id === "new"}
         <h1>Create Post</h1>

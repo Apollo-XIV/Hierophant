@@ -20,7 +20,7 @@ services:
       - GITHUB_ID=${GITHUB_ID}
       - GITHUB_SECRET=${GITHUB_SECRET}
       - AUTH_SECRET=${AUTH_SECRET}
-      - ORIGIN=${DEVBE_ORIGIN}
+      - ORIGIN="localhost:8080"
       - AUTH_TRUST_HOST=true
     volumes:
       - type: bind
