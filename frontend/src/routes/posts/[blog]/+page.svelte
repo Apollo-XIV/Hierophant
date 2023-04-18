@@ -5,6 +5,10 @@
 </script>
 <svelte:head>
 	<title>{data.res.title} | Hierophant</title> 
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/futura-std-4" as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/ibm-plex-sans-kr" as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/monosphere-personal-use" as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/redaction"as="font" type="font/woff2" crossorigin/>
 </svelte:head>
 
 <div id="abstract">{data.res.abstract}</div>
@@ -78,7 +82,9 @@
 
     .content-styling :global(img) {
         max-width: 100%;
-        max-height: 50vh;
+        max-height: 65vh;
+        width: auto;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
         align-self: center;
