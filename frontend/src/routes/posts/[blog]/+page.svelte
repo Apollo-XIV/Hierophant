@@ -66,6 +66,10 @@
         margin-left: -20px;
     }
 
+    .content-styling ul {
+        list-style-type: none;
+    }
+
     .content-styling :global(h2),:global(h3),:global(h4) {
         font-family: 'IBM Plex Sans Kr';
         box-shadow: 5px 5px 86px 20px #000;
