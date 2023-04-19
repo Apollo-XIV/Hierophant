@@ -14,7 +14,6 @@ export const load = async ({fetch, params}) => {
     if (!res) {
         throw error(404, "Could not find this post")
     }
-    console.log("found the post and url")
     // Config CDN Req.
     const getparams = {
         Bucket: "hierophant-1",
@@ -23,9 +22,9 @@ export const load = async ({fetch, params}) => {
     // Run CDN Req.
     let content
     try {
-        console.log("asfg")
+
         content = fetchObject(getparams)
-        console.log("asdf")
+
     } catch (err) {
         console.log(err)
         console.error(err);
