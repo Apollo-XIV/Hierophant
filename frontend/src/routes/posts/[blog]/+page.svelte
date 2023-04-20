@@ -48,6 +48,7 @@
         color: white;
         max-width: 1200px;
         width: auto;
+        margin: auto;
         padding-left: 40px;
         padding-top: 100px;
         padding-right: 40px;
