@@ -46,9 +46,11 @@
 
     .content-styling {
         color: white;
-        padding-left: 300px;
+        max-width: 1200px;
+        width: auto;
+        padding-left: 40px;
         padding-top: 100px;
-        padding-right: 300px;
+        padding-right: 40px;
         margin-bottom: 100px;
     }
 
@@ -56,6 +58,10 @@
         font-family: 'Futura Std';
         color: white;
         font-size: larger;
+    }
+
+    .content-styling :global(p) {
+        text-align: justify;
     }
 
     .content-styling :global(p),:global(li) {
