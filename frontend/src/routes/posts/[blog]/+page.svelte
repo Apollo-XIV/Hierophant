@@ -49,9 +49,9 @@
         max-width: 1200px;
         width: auto;
         margin: auto;
-        padding-left: 40px;
+        padding-left: 20px;
         padding-top: 100px;
-        padding-right: 40px;
+        padding-right: 20px;
         margin-bottom: 100px;
     }
 

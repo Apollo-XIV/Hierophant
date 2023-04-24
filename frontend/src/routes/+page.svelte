@@ -43,6 +43,8 @@
         max-width: 1200px;
         width: auto;
         margin: auto;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     div#logo {
