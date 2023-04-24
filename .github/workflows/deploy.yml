@@ -75,7 +75,7 @@ jobs:
 
   create-and-upload-pkg:
     runs-on: ubuntu-latest
-    environment: malbolge
+    environment: hearthfire
     steps:
     - uses: actions/checkout@v3
     - name: Create .env file
@@ -86,7 +86,7 @@ jobs:
     - uses: SamKirkland/web-deploy@v1
       with:
         target-server: ${{ secrets.ENV_IP_ADDR }}
-        remote-user: ec2-user
+        remote-user: ubuntu
         private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         destination-path: /home/deployments/pkg-${{ github.run_number }}/
         source-path: ./deploymentPackage/
@@ -96,12 +96,12 @@ jobs:
   activate-package:
     runs-on: ubuntu-latest
     needs: [build-nginx-and-push, build-frontend-and-push, build-backend-and-push, create-and-upload-pkg]
-    environment: malbolge
+    environment: hearthfire
     steps:
     - uses: appleboy/ssh-action@v0.1.9
       with:
         command_timeout: 20m
         host: ${{ secrets.ENV_IP_ADDR }}
-        username: ec2-user
+        username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
