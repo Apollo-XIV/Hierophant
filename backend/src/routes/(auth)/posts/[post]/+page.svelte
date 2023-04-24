@@ -42,6 +42,7 @@
     }
 
     $: slug = slugged(title);
+    $: style = title == '' ? 'blocked' : ''
 </script>
 <input id="my-file" type="file" name="my-file" style="display: none;" onchange="" />
 <div id="wrapper">
@@ -57,7 +58,7 @@
         <Editor bind:value={content} id="Editor" {conf} scriptSrc="../../node_modules/tinymce/tinymce.min.js"/>
         <input name="content" type="hidden" value={content} />
         <input name="id" type="hidden" value={id} />
-        <input id="submit" type="submit" value="Save Post"/>
+        <input class="{style}" id="submit" type="submit" value="Save Post"/>
     </form>
     
 </div>
@@ -124,6 +125,11 @@
         width: 1000px;
         overflow-x: visible;
         
+    }
+
+    .blocked {
+        pointer-events: none;
+        opacity: 0.5;
     }
 
     h1 {
