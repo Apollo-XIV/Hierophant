@@ -40,8 +40,9 @@
     }
     
     div#copy {
-        padding-left: 300px;
-        padding-right: 300px;
+        max-width: 1200px;
+        width: auto;
+        margin: auto;
     }
 
     div#logo {

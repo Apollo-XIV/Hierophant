@@ -40,8 +40,9 @@
     }
 
     .posts {
-        padding-left: 300px;
-        padding-right: 300px;
+        max-width: 1200px;
+        width: auto;
+        margin: auto;
         padding-bottom: 100px;
         padding-top: 100px;
         height: max-content;
