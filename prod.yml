@@ -1,5 +1,6 @@
 services:
   frontend:
+    name: frontend
     image: apolloxiv/frontend:latest
     environment:
       - MONGO_DB_URL=${MONGO_DB_URL}
@@ -9,6 +10,7 @@ services:
       - "5173:5173"
 
   backend:
+    name: backend
     image: apolloxiv/backend:latest
     environment:
       - MONGO_DB_URL=${MONGO_DB_URL}
@@ -25,6 +27,7 @@ services:
       - 5174:5173
 
   nginx:
+    name: nginx
     image: apolloxiv/nginx:latest
     ports:
       - "80:80"
