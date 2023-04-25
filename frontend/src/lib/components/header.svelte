@@ -46,6 +46,12 @@
         top: 0;
         width: 100%;
         overflow-x: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    header::-webkit-scrollbar {
+        display: none;
     }
 
 </style>
