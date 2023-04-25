@@ -83,6 +83,7 @@
         content: '\2014';
         position: absolute;
         margin-left: -20px;
+        z-index: 0;
     }
 
     .content-styling :global(ul),:global(li) {
