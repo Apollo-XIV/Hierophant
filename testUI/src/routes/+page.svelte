@@ -1,9 +1,15 @@
 <script>
+    import PostLink from '../components/postlink.svelte';
     import Header from "../components/header.svelte";
+    import Postcard from "../components/postcard.svelte";
+    import Post from "../components/postcard.svelte";
+    import Postlink from '../components/postlink.svelte';
 </script>
 <svelte:head>
     <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/ibm-plex-sans" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet" crossorigin>
     <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/grozery" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/grozery" rel="stylesheet" crossorigin>
 </svelte:head>
@@ -22,12 +28,65 @@
             <p>
                 Learn Dev-Ops <br><span>Easier</span>
             </p>
+            <p id="postlinkdesc">This is some descriptive text about what this site is about. This text is quite plain right now but I'll change it later to be better</p>
+            <Postlink/>
         </div>
-        
+    </div>
+    <div id="cards">
+        <div id="flexcards">
+            <Postcard/>
+        </div>
     </div>
 </div>
 
 <style>
+
+    #cards {
+        position: absolute;
+        top: 200vh;
+        height: 100vh;
+        width: 100vw;
+        left: 400px;
+    }
+
+    #flexcards {
+        display: flexbox;
+    }
+
+    #postlinkgrad {
+        background-image: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
+        width: fit-content;
+        height: 50px;
+        display: inline-block;
+        border-radius: 25px;
+    }
+
+    #postlinkdesc {
+        color: white;
+        font-family: 'IBM Plex Mono';
+        font-weight: normal;
+        font-size: medium;
+        max-width: 50vw;
+        line-height: normal;
+        text-align: left;
+        
+    }
+
+    #postcopy a {
+        background-color: white;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: large;
+        line-height: normal;
+        color: black;
+        display: inline-block;
+        mix-blend-mode: screen;
+        padding: 15px;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
     #mainpage {
         height: 100vh;
         width: 100vw;
@@ -93,13 +152,13 @@
         width: min-content;
         margin: 0 auto;
         position: absolute;
-        top: 20px;
+        top: 0px;
         left: 0;
         right: 0;
         z-index: 1;
         align-self: center;
 
-        height: 1000px;
+        height: 500px;
     }
 
     #logo h1 {
@@ -108,6 +167,7 @@
         font-size: 100px;
         position: relative;
         padding-top: 170px ;
+        text-align: center;
     }
 
     #postlink {
