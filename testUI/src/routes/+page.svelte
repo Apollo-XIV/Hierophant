@@ -1,9 +1,9 @@
 <script>
-    import PostLink from '../components/postlink.svelte';
+    import Postlink from '../components/postlink.svelte';
     import Header from "../components/header.svelte";
     import Postcard from "../components/postcard.svelte";
-    import Post from "../components/postcard.svelte";
-    import Postlink from '../components/postlink.svelte';
+
+    let numbers = [...Array(4).keys()];
 </script>
 <svelte:head>
     <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
@@ -28,63 +28,69 @@
             <p>
                 Learn Dev-Ops <br><span>Easier</span>
             </p>
-            <p id="postlinkdesc">This is some descriptive text about what this site is about. This text is quite plain right now but I'll change it later to be better</p>
-            <Postlink/>
+            <p class="postlinkdesc">Welcome to my blog! As an aspiring DevOps engineer and apprentice, I've encountered a lot of complexity in my learning journey. That's why I've created this blog with the goal of making DevOps concepts and practices more accessible and understandable to everyone.</p>
+            <p class="postlinkdesc">I believe that simplicity is key to understanding, which is why I strive to explain even the most complex concepts in a clear and concise way. My articles are written with beginners in mind, but even experienced professionals may find some valuable insights.</p>
+            <Postlink id="postlinkbtn"/>
         </div>
     </div>
     <div id="cards">
+        <h2>Recent Posts</h2>
         <div id="flexcards">
-            <Postcard/>
+            {#each numbers as number}
+                <div class="flexwrapper">
+                <Postcard/>
+                </div>
+            {/each}
         </div>
     </div>
 </div>
 
 <style>
 
+    :globa(html) {
+        scroll-behavior: smooth;
+    }
+
+    #cards h2 {
+        font-family: 'IBM Plex Sans';
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        text-transform: uppercase;
+        filter: drop-shadow(0px 0px 0.75rem rgba(54, 54, 54, 0.397));
+    }
+
     #cards {
         position: absolute;
-        top: 200vh;
+        top: 175vh;
         height: 100vh;
         width: 100vw;
-        left: 400px;
+        
     }
 
     #flexcards {
-        display: flexbox;
+        margin: 0 40px 0 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
 
-    #postlinkgrad {
-        background-image: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
+    .flexwrapper {
+        display: inline-flex;
         width: fit-content;
-        height: 50px;
-        display: inline-block;
-        border-radius: 25px;
+        align-self: center ;
     }
 
-    #postlinkdesc {
+    .postlinkdesc {
         color: white;
         font-family: 'IBM Plex Mono';
         font-weight: normal;
-        font-size: medium;
+        font-size: large;
         max-width: 50vw;
         line-height: normal;
         text-align: left;
         
-    }
-
-    #postcopy a {
-        background-color: white;
-        border-radius: 25px;
-        text-decoration: none;
-        font-size: large;
-        line-height: normal;
-        color: black;
-        display: inline-block;
-        mix-blend-mode: screen;
-        padding: 15px;
-        width: 100%;
-        position: relative;
-        top: 0;
     }
 
     #mainpage {
@@ -141,7 +147,7 @@
         background-position: top;
         background-repeat: no-repeat;
         width: 100vw;
-        height: 400vh;
+        height: 300vh;
     }
 
     #logo {
@@ -157,7 +163,7 @@
         right: 0;
         z-index: 1;
         align-self: center;
-
+        filter: drop-shadow(0 0 50px #00000036);
         height: 500px;
     }
 
@@ -168,12 +174,13 @@
         position: relative;
         padding-top: 170px ;
         text-align: center;
+        text-shadow: 0 0 50px #00000036;
     }
 
     #postlink {
         position: absolute;
         top: 100vh;
-        height: 100vh;
+        height: 50vh;
         width: 100vw;
     }
 </style>

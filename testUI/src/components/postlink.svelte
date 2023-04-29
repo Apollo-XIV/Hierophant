@@ -20,6 +20,24 @@
         width: 200px;
     }
 
+    #gradient::before {
+        opacity: 0;
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
+        z-index: -2;
+        filter: blur(40px);
+        transition: opacity ease-in-out 200ms
+    }
+
+    #gradient:hover::before {
+        opacity: 1;
+    }
+
     #bg {
         position: absolute;
         top: 5px;bottom: 5px;left:5px;right:5px;

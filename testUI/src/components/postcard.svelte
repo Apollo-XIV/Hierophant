@@ -1,52 +1,122 @@
+<script>
+    //import tilt from '$lib/modules/tilt.js'
+    import { onMount } from 'svelte';
+    import VanillaTilt from 'vanilla-tilt'
+    let tilting;
+    onMount(()=>{
+        VanillaTilt.init(tilting, {
+            max: 1,
+            gyroscope: false,
+            speed: 600,
+            reverse: true
+        })
+    });
+    
+    let title = "A Sample Title Thats Too Long For The Box Or Maybe Not I Guess I'll Keep Typing";
+    let slug = "post";
+
+</script>
+
+
 <svelte:head>
     <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/ibm-plex-sans" rel="stylesheet" crossorigin>
     <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet" crossorigin>
 </svelte:head>
-<div id="bag">
-    <div id="test">
-        <p>This is a test</p>
+
+
+<a id="link" href="posts/{slug}">
+<div bind:this="{tilting}" id="bg" data-tilt>
+    <glow-effect></glow-effect>
+    <div id="main">
+        <div id="text">
+            <h3 id="title" data-value="{title}">{title}</h3>
+            <p id="abstract">a sample description</p>
+            <div id="meta-info">
+                <p id="author" class="meta"><a href="/author/all">Alex Crease</a></p>
+                <p id="tags" class="meta">#WebDev #Svelte</p>
+            </div>
+        </div>
     </div>
 </div>
-
-
-
-<!-- 
-<div id="boundary">
-    <div id="bg">
-    <h3>
-        Making a Blog From Scratch With Sveltekit
-    </h3>
-    <h4>
-        A simple tutorial on how to absdfgasdgasdngljasdnbgljgn sdljfg;sadfg  sample text :)
-    </h4>
-    </div>
-</div> -->
+</a>
 
 <style>
 
-    #bag {
-        background-color: #31314945;
+    /* Border CSS */
+
+    #link {
+        display: inline-block;
+        backdrop-filter: blur(5px);
     }
 
-    #test {
+    #bg {
+        max-width: 800px;
+        --r: 12px
+        position: relative;
+        background-color: #11112436;
+        height: min-content;
+        width: fit-content;
+        border-radius: 12px;
+        z-index: 1;
+        
+        
+    }
+
+    #bg glow-effect::before {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        border-radius: var(--r);
+        background: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
+        filter: blur(10px);
+        opacity: 0;
+        transition: opacity ease-out 0.5s;
+        pointer-events: none;
+    }
+
+    #bg glow-effect {
+        pointer-events: none;
+        opacity: 1;
+        position: absolute;
+        inset: -150px;
+        border: 150px solid #0000;
+        border-radius: 165px;
+        transform: translateZ(-1px);
+        -webkit-mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+    }
+
+    #bg:hover glow-effect::before {
+        opacity: 1;
+    }
+
+    #main {
         color: #313149;
         padding: 10px;
+        width: inherit;
+        height: auto;
         display: inline-block;
-        margin: 75px 0;
+        margin: 0 0;
         position: relative;
         z-index: 0;
     }
 
-    #test::before {
+    #main::before {
         content: "";
         position: absolute;
         z-index: -1;
         inset: 0;
-        padding: 5px;
-        border-radius: 15px;
-        background: linear-gradient(to right, red, green);
+        padding: 2px;
+        border-radius: 12px;
+        background: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box, 
             linear-gradient(#fff 0 0);
@@ -57,43 +127,84 @@
                 mask-composite: exclude;
     }
 
-    #bg {
-        top: 0; right: 0; left: 0; bottom: 0;
-        background: rgba(70, 62, 80, 0.35);
-        border: 2px solid;
-        border-image: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%) 1;
-        padding: 1rem
+    #text {
+        margin: 0 15px 0 15px;
     }
 
-    #boundary {
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        top: 0px;
-        bottom: 0px;
-        backdrop-filter: blur(2px);
-        border-radius: 11px;
-        overflow: hidden;
-        height: fit-content;
-        width: 800px;
-    }
+    /* Text Styling */
 
-    #boundary h3 {
-        color: white;
+    h3 {
         font-family: 'IBM Plex Sans';
+        font-variant: small-caps;
         font-weight: bold;
         font-size: xx-large;
-        text-transform: uppercase;
-        line-height: 30px;
-        margin-bottom: -15px;
+        color: white;
+        line-height: 35px;
+        margin-top: 15px;
     }
 
-    #boundary h4 {
-        color: white;
+    h3::before {
+        position: absolute;
+        left: 25px;
+        font-size: xx-large;
+        content: attr(data-value);
+        filter: blur(5px);
+        color: rgba(255, 255, 255, 0.295);
+    }
+
+    #abstract {
         font-family: 'IBM Plex Mono';
-        overflow: wrap;
-        font-weight: normal;
+        font-size: large;
         font-style: italic;
+        color: white;
+        margin-top: -25px;
+    }
+
+    #meta-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: -15px;
+        margin-top: -25px;
+    }
+
+    .meta {
+        color: white;
+        font-family: 'IBM Plex Sans';
+        font-weight: lighter;
+        font-size: larger;
+        text-transform: uppercase;
+    }
+
+    #author {
+        display: inline;
+    }
+
+    #author a {
+        text-decoration: none;
+        color: white;
+        position: relative;
+    }
+    
+    #author a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transform-origin: bottom left;
+        transition: transform 150ms ease-in-out;
+    }
+
+    #author a:hover::after {
+        transform: scaleX(1);
+    }
+
+    #tags {
+        display: inline;
+        text-align: right;
     }
 
 </style>
