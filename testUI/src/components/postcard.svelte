@@ -1,8 +1,22 @@
 <script>
     //import tilt from '$lib/modules/tilt.js'
     import { onMount } from 'svelte';
-    import VanillaTilt from 'vanilla-tilt'
+    import VanillaTilt from 'vanilla-tilt';
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
     let tilting;
+
+    let test;
+
+    function hover() {
+        dispatch('hover', {reference: test});
+    }
+
+    function absence() {
+        dispatch('absence');
+    }
+
     onMount(()=>{
         VanillaTilt.init(tilting, {
             max: 1,
@@ -26,7 +40,7 @@
 </svelte:head>
 
 
-<a id="link" href="posts/{slug}">
+<a id="link" bind:this={test} href="posts/{slug}" on:mouseleave={absence} on:focus={hover} on:mouseover={hover}>
 <div bind:this="{tilting}" id="bg" data-tilt>
     <glow-effect></glow-effect>
     <div id="main">

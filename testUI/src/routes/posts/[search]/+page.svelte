@@ -7,8 +7,11 @@
     let header;
     let scrollPosition;
     let postbox;
+    let selector;
+    let innerHeight;
+    let innerWidth;
 
-    function parseScroll() {
+    async function parseScroll() {
         scrollPosition = mainStatus.scrollTop;
         handleFade();
         transitionBar();
@@ -23,21 +26,51 @@
     }
 
     async function transitionBar() {
-        
+        let dispVar = 350 - scrollPosition;
+        if (dispVar < 120) {
+            postbox.style.setProperty('--displacement', "120px");
+            return;
+        }
+        postbox.style.setProperty('--displacement', String(dispVar)+"px");
     }
 
-    onMount(() => parseScroll())
+    async function moveSelector(event) {
+        let posValTop = event.detail.reference.getBoundingClientRect().top;
+        let posValBtm = innerHeight - event.detail.reference.getBoundingClientRect().bottom;
+        
+        if (posValTop < 120) {
+            posValTop = 120;
+        }
+
+        if (posValBtm < 50) {
+            posValBtm = 52;
+        }
+        selector.style.setProperty('opacity', "1");
+        selector.style.setProperty('top', String(posValTop)+"px");
+        selector.style.setProperty('bottom', String(posValBtm)+"px");
+    }
+
+    async function hideSelector(event) {
+        selector.style.setProperty('opacity', "0");
+    }
+
+    onMount(() => {
+        parseScroll();
+        //moveSelector();
+    })
 
 </script>
+<svelte:window bind:innerWidth bind:innerHeight />
 
 <header bind:this={header}></header>
 <main bind:this={mainStatus} on:scroll={parseScroll}>
     <h1>All Posts</h1>
     <div bind:this={postbox} id="posts">
         {#each numbers as number}
-            <PostListing/>
+            <PostListing on:absence={hideSelector} on:hover={moveSelector}/>
         {/each}
     </div>
+    <span bind:this={selector} id="selector"></span>
 
 </main>
 
@@ -112,6 +145,16 @@
         width: 10px;
         background: rgb(13, 12, 14);
         border-radius: 20px;
+        transition: top ease;
+    }
+
+    #selector {
+        width: 1px;
+        background-image: linear-gradient(0deg, rgba(161,254,255,0) 0%, rgba(102,73,191,1) 50%, rgba(231,114,255,0) 100%);
+        position: fixed;
+        right: 208px;
+        opacity: 0;
+        transition: top ease 300ms, bottom ease 300ms, opacity ease 300ms;
     }
 
 </style>
