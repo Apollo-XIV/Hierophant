@@ -1,5 +1,5 @@
 <script>
-    import Postcard from "../../../components/postcard.svelte";
+    import Postcard from "../../components/postcard.svelte";
 </script>
 
 <div id="post">
