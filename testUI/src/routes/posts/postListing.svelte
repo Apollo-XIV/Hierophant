@@ -3,7 +3,8 @@
 </script>
 
 <div id="post">
-    <Postcard on:hover on:absence/>
+    <Postcard />
+    <!-- <Postcard on:hover on:absence/> -->
     <span id="divider"></span>
     <p id="date">1/2/34</p>
 </div>

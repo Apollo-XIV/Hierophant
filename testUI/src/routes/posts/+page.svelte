@@ -14,7 +14,7 @@
     async function parseScroll() {
         scrollPosition = mainStatus.scrollTop;
         handleFade();
-        transitionBar();
+        //transitionBar();
     }
 
     async function handleFade() {
@@ -25,34 +25,34 @@
         }
     }
 
-    async function transitionBar() {
-        let dispVar = 350 - scrollPosition;
-        if (dispVar < 120) {
-            postbox.style.setProperty('--displacement', "120px");
-            return;
-        }
-        postbox.style.setProperty('--displacement', String(dispVar)+"px");
-    }
+    // async function transitionBar() {
+    //     let dispVar = 350 - scrollPosition;
+    //     if (dispVar < 120) {
+    //         postbox.style.setProperty('--displacement', "120px");
+    //         return;
+    //     }
+    //     postbox.style.setProperty('--displacement', String(dispVar)+"px");
+    // }
 
-    async function moveSelector(event) {
-        let posValTop = event.detail.reference.getBoundingClientRect().top;
-        let posValBtm = innerHeight - event.detail.reference.getBoundingClientRect().bottom;
+    // async function moveSelector(event) {
+    //     let posValTop = event.detail.reference.getBoundingClientRect().top;
+    //     let posValBtm = innerHeight - event.detail.reference.getBoundingClientRect().bottom;
         
-        if (posValTop < 120) {
-            posValTop = 120;
-        }
+    //     if (posValTop < 120) {
+    //         posValTop = 120;
+    //     }
 
-        if (posValBtm < 50) {
-            posValBtm = 52;
-        }
-        selector.style.setProperty('opacity', "1");
-        selector.style.setProperty('top', String(posValTop)+"px");
-        selector.style.setProperty('bottom', String(posValBtm)+"px");
-    }
+    //     if (posValBtm < 50) {
+    //         posValBtm = 52;
+    //     }
+    //     selector.style.setProperty('opacity', "1");
+    //     selector.style.setProperty('top', String(posValTop)+"px");
+    //     selector.style.setProperty('bottom', String(posValBtm)+"px");
+    // }
 
-    async function hideSelector(event) {
-        selector.style.setProperty('opacity', "0");
-    }
+    // async function hideSelector(event) {
+    //     selector.style.setProperty('opacity', "0");
+    // }
 
     onMount(() => {
         parseScroll();
@@ -67,7 +67,8 @@
     <h1>All Posts</h1>
     <div bind:this={postbox} id="posts">
         {#each numbers as number}
-            <PostListing on:absence={hideSelector} on:hover={moveSelector}/>
+            <PostListing />
+            <!-- <PostListing on:absence={hideSelector} on:hover={moveSelector}/> -->
         {/each}
     </div>
     <span bind:this={selector} id="selector"></span>
