@@ -30,7 +30,7 @@
             </p>
             <p class="postlinkdesc">Welcome to my blog! As an aspiring DevOps engineer and apprentice, I've encountered a lot of complexity in my learning journey. That's why I've created this blog with the goal of making DevOps concepts and practices more accessible and understandable to everyone.</p>
             <p class="postlinkdesc">I believe that simplicity is key to understanding, which is why I strive to explain even the most complex concepts in a clear and concise way. My articles are written with beginners in mind, but even experienced professionals may find some valuable insights.</p>
-            <Postlink id="postlinkbtn"/>
+            <Postlink />
         </div>
     </div>
     <div id="cards">
@@ -48,6 +48,8 @@
 <style>
 
     :global(html) {
+        margin: 0;
+        padding: 0;
         scroll-behavior: smooth;
         overflow-x: hidden;
 

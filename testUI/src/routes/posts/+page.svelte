@@ -164,6 +164,8 @@
     @media screen and (orientation: portrait) {
         :global(body) {
             background-size: contain;
+            overflow: hidden;
+            height: 844px;
         }
 
         header {
