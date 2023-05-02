@@ -22,7 +22,8 @@
             max: 1,
             gyroscope: false,
             speed: 600,
-            reverse: true
+            reverse: true,
+            perspective: 1000,
         })
     });
     

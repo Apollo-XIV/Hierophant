@@ -109,9 +109,9 @@
 
     main {
         max-height: calc(100vh - 80px);
-        overflow: scroll;
-        overflow-x: hidden;
+        overflow-y: scroll;
         text-align: center;
+        overflow-x: hidden;
     }
 
     main h1 {
@@ -129,14 +129,14 @@
         background-image: url('/perlin.png');
         background-size: 50%;
         background-position-y: -80px;
+        overflow-x: hidden;
+
     }
 
     #posts {
-        position: relative;
         --displacement: 350px;
         display: inline-block;
-        margin: auto;
-        max-width: 1900px;
+        max-width: 100%;
         width: max-content;
     }
 
@@ -168,6 +168,17 @@
 
         header {
             background-size: cover;
+            transition: filter ease 300ms;
+            filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, calc(var(--opacity)*0.874)));
+            z-index: 6;
+        }
+
+        header::before {
+            opacity: 0;
+        }
+
+        main h1 {
+            margin-top: 100px;
         }
 
         #posts::after {
@@ -179,13 +190,15 @@
         }
 
         #posts {
-            margin: 50px;
+            box-sizing: border-box;
             margin-top: 0px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         header::before {
-            left: 0px;
-            right: 0px;
+            left: -20px;
+            right: -20px;
         }
     }
 
