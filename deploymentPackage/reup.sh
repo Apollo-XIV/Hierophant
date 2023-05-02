@@ -1,3 +1,4 @@
+sudo systemctl start docker
 sudo docker pull apolloxiv/uitest
 sudo docker kill proc123
 sudo docker rm proc123
