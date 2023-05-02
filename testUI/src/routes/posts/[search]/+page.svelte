@@ -110,13 +110,16 @@
     main {
         max-height: calc(100vh - 80px);
         overflow: scroll;
+        overflow-x: hidden;
+        text-align: center;
     }
 
     main h1 {
         color: white;
         font-family: 'IBM Plex Sans';
         text-transform: uppercase;
-        margin-left: 300px;
+        text-align: center;
+        margin: auto;
         margin-top: 200px;
         font-size: 40px;
     }
@@ -130,10 +133,11 @@
 
     #posts {
         position: relative;
-        margin: 100px;
-        margin-top: 0;
-        margin-left: 300px;
         --displacement: 350px;
+        display: inline-block;
+        margin: auto;
+        max-width: 1900px;
+        width: max-content;
     }
 
     #posts::after {
@@ -152,9 +156,37 @@
         width: 1px;
         background-image: linear-gradient(0deg, rgba(161,254,255,0) 0%, rgba(102,73,191,1) 50%, rgba(231,114,255,0) 100%);
         position: fixed;
-        right: 208px;
+        right: 210px;
         opacity: 0;
         transition: top ease 300ms, bottom ease 300ms, opacity ease 300ms;
+    }
+
+    @media screen and (orientation: portrait) {
+        :global(body) {
+            background-size: contain;
+        }
+
+        header {
+            background-size: cover;
+        }
+
+        #posts::after {
+            display: none;
+        }
+
+        #selector {
+            display: none;
+        }
+
+        #posts {
+            margin: 50px;
+            margin-top: 0px;
+        }
+
+        header::before {
+            left: 0px;
+            right: 0px;
+        }
     }
 
 </style>

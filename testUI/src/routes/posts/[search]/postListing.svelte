@@ -12,14 +12,15 @@
 
     #divider {
         flex-grow: 1;
-        border-bottom: 1px dashed white;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.375);
         margin: 20px;
+        display: flex;
+        min-width: 50px;
     }
 
     #post {
         display: flex;
         align-items:baseline;
-        margin-right: 200px;
     }
 
     #date {
@@ -34,6 +35,21 @@
         position: relative;
         margin-top: 10px;
         
+    }
+
+    @media screen and (orientation: portrait) {
+        #divider {
+            display: none;
+        }
+        
+        #date {
+            display: none;
+        }
+
+        #post {
+            margin-right: 0px;
+        }
+
     }
 
 </style>

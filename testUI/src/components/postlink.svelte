@@ -59,4 +59,10 @@
         text-decoration: none;
         vertical-align: middle;
     }
+
+    @media screen and (orientation: portrait) {
+        #gradient {
+            margin-left: 50px;
+        }
+    }
 </style>

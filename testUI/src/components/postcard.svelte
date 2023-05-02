@@ -7,10 +7,10 @@
     const dispatch = createEventDispatcher();
     let tilting;
 
-    let test;
+    let unit;
 
     function hover() {
-        dispatch('hover', {reference: test});
+        dispatch('hover', {reference: unit});
     }
 
     function absence() {
@@ -40,7 +40,7 @@
 </svelte:head>
 
 
-<a id="link" bind:this={test} href="posts/{slug}" on:mouseleave={absence} on:focus={hover} on:mouseover={hover}>
+<a id="link" bind:this={unit} href="posts/{slug}" on:mouseleave={absence} on:focus={hover} on:mouseover={hover}>
 <div bind:this="{tilting}" id="bg" data-tilt>
     <glow-effect></glow-effect>
     <div id="main">
@@ -76,6 +76,10 @@
         z-index: 1;
         
         
+    }
+
+    h3,p {
+        text-align: left;
     }
 
     #bg glow-effect::before {
@@ -128,7 +132,7 @@
         position: absolute;
         z-index: -1;
         inset: 0;
-        padding: 2px;
+        padding: 1px;
         border-radius: 12px;
         background: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
         -webkit-mask:
@@ -155,11 +159,12 @@
         color: white;
         line-height: 35px;
         margin-top: 15px;
+        position: relative;
     }
 
     h3::before {
         position: absolute;
-        left: 25px;
+        width: 100%;
         font-size: xx-large;
         content: attr(data-value);
         filter: blur(5px);
@@ -223,129 +228,3 @@
 
 </style>
 
-
-<!-- /* Frame 1 */
-
-position: absolute;
-width: 897px;
-height: 216px;
-left: 112px;
-top: 326px;
-
-filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.25));
-border-radius: 12px;
-
-
-/* making a blog from scratch with sveltekit */
-
-position: absolute;
-width: 499px;
-height: 70px;
-left: 32px;
-top: 28px;
-
-font-family: 'IBM Plex Mono';
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 35px;
-/* or 109% */
-text-transform: uppercase;
-
-color: rgba(255, 255, 255, 0.4);
-
-
-
-/* Rectangle 2 */
-
-box-sizing: border-box;
-
-position: absolute;
-left: 0px;
-right: 0px;
-top: 1px;
-bottom: 0px;
-
-background: rgba(70, 62, 80, 0.35);
-backdrop-filter: blur(2px);
-/* Note: backdrop-filter has minimal browser support */
-border-radius: 11px;
-
-
-/* #webdev #svelte */
-
-position: absolute;
-width: 180px;
-height: 35px;
-left: 703px;
-top: 169px;
-
-font-family: 'IBM Plex Mono';
-font-style: normal;
-font-weight: 100;
-font-size: 20px;
-line-height: 35px;
-/* identical to box height, or 175% */
-text-transform: uppercase;
-
-color: #FFFFFF;
-
-
-
-/* making a blog from scratch with sveltekit */
-
-position: absolute;
-width: 499px;
-height: 70px;
-left: 32px;
-top: 28px;
-
-font-family: 'IBM Plex Mono';
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 35px;
-/* or 109% */
-text-transform: uppercase;
-
-color: #FFFFFF;
-
-
-
-/* alex crease */
-
-position: absolute;
-width: 132px;
-height: 35px;
-left: 26px;
-top: 169px;
-
-font-family: 'IBM Plex Mono';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 35px;
-/* identical to box height, or 175% */
-text-transform: uppercase;
-
-color: #FFFFFF;
-
-
-
-/* An explanation of how I made this site & some of the challenges therein */
-
-position: absolute;
-width: 633px;
-height: 47px;
-left: 32px;
-top: 108px;
-
-font-family: 'IBM Plex Mono';
-font-style: italic;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-/* or 118% */
-
-color: #FFFFFF;
- -->

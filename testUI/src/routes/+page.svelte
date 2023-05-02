@@ -47,8 +47,10 @@
 
 <style>
 
-    :globa(html) {
+    :global(html) {
         scroll-behavior: smooth;
+        overflow-x: hidden;
+
     }
 
     #cards h2 {
@@ -62,10 +64,10 @@
 
     #cards {
         position: absolute;
-        top: 175vh;
+        top: 200vh;
         height: 100vh;
         width: 100vw;
-        
+        overflow-y: hidden;
     }
 
     #flexcards {
@@ -148,14 +150,17 @@
         background-repeat: no-repeat;
         width: 100vw;
         height: 300vh;
+        overflow-x: hidden;
     }
 
     #logo {
         background-image: url("/Logofaint.png");
         background-size: contain;
         background-repeat: no-repeat;
+        background-position-x: center;
         height: fit-content;
         width: min-content;
+        max-width: 500px;
         margin: 0 auto;
         position: absolute;
         top: 0px;
@@ -165,12 +170,13 @@
         align-self: center;
         filter: drop-shadow(0 0 50px #00000036);
         height: 500px;
+        outline: magenta;
     }
 
     #logo h1 {
         color: white;
         font-family: 'Grozery', 'Palatino';
-        font-size: 100px;
+        font-size: 80px;
         position: relative;
         padding-top: 170px ;
         text-align: center;
@@ -180,7 +186,31 @@
     #postlink {
         position: absolute;
         top: 100vh;
-        height: 50vh;
+        height: 60vh;
         width: 100vw;
     }
+
+    @media screen and (orientation: portrait) {
+        #postcopy {
+            right: 20px;
+            left: 0;
+        }
+
+        .postlinkdesc {
+            margin-right: 50px;
+            max-width: 100vw;
+            margin-left: 50px;
+        }
+        
+        #first-copy {
+            left: 5px;
+            font-size: 90px;
+        }
+
+        #postlink {
+            height: 100vh;
+        }
+    }
+
+    
 </style>
