@@ -9,13 +9,13 @@
 
     let unit;
 
-    // function hover() {
-    //     dispatch('hover', {reference: unit});
-    // }
+    function hover() {
+        dispatch('hover', {reference: unit});
+    }
 
-    // function absence() {
-    //     dispatch('absence');
-    // }
+    function absence() {
+        dispatch('absence');
+    }
 
     onMount(()=>{
         VanillaTilt.init(tilting, {
@@ -41,9 +41,8 @@
 </svelte:head>
 
 
-<!-- <a id="link" bind:this={unit} href="posts/{slug}" on:mouseleave={absence} on:focus={hover} on:mouseover={hover}> -->
-<a id="link" href="test">
-    <div bind:this="{tilting}" id="bg" data-tilt>
+<a id="link" bind:this={unit} href="posts/{slug}" on:mouseleave={absence} on:focus={hover} on:mouseover={hover}>
+<div bind:this="{tilting}" id="bg" data-tilt>
     <glow-effect></glow-effect>
     <div id="main">
         <div id="text">
