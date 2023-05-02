@@ -1,4 +1,4 @@
-name: Deploy Webapp to Server
+name: Deploy ui to test server
 
 on:
   push:
@@ -57,4 +57,4 @@ jobs:
         host: ${{ secrets.ENV_IP_ADDR }}
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh up.sh"
+        script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh reup.sh"
