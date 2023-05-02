@@ -26,7 +26,7 @@ jobs:
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
         context: ./frontend
-        tags: apolloxiv/uiTest
+        tags: apolloxiv/uitest
         push: true
 
 # Create .env file in /deploymentPackage/
@@ -39,7 +39,7 @@ jobs:
     - uses: SamKirkland/web-deploy@v1
       with:
         target-server: ${{ secrets.ENV_IP_ADDR }}
-        remote-user: ubuntu
+        remote-user: azureuser
         private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         destination-path: /home/deployments/pkg-${{ github.run_number }}/
         source-path: ./deploymentPackage/
@@ -55,6 +55,6 @@ jobs:
       with:
         command_timeout: 20m
         host: ${{ secrets.ENV_IP_ADDR }}
-        username: ubuntu
+        username: azureuser
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh reup.sh"
