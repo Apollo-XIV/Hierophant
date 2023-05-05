@@ -12,31 +12,56 @@
 <script>
     import PostCard from '$lib/components/postcard.svelte';
     import { onMount } from 'svelte';
+    import Tempcomp from '$lib/components/tempcomp.svelte';
 
 </script>
 
 <div class="parallax">
-    <div class="parallax-layer" id="background"></div>
+    <div class="parallax-layer level" style="--depth: -5px" >
+        <img src="/devops.png" id="devops-logo" alt="devops logo" />
+    </div>
+    <img class="parallax-layer level" style="--depth: 0px" src="/git.png" id="git-logo" alt="Git logo" />
+    <img class="parallax-layer level" style="--depth: -3px" src="/k8s.png" id="k8s-logo" alt="Kubernetes logo" />
 
-
-    <div class="parallax-layer" id="middleground"></div>
-
-
-    <div class="parallax-layer" id="foreground">
-        <p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
+    <div class="parallax-layer level" style="--depth: -1px" id="foreground">
+        <Tempcomp/>
     </div>
 </div>
 
 
 
 <style>
+
+    #git-logo {
+        position: absolute;
+        top: 1000px;
+        left: -100px;
+        /* transform: scale(0.45); */
+        filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.288));
+    }
+
+    #k8s-logo {
+        position: absolute;
+        top: 1000px;
+        left: 200px;
+        /* transform: scale(0.5); */
+        filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.288));
+    }
+
+    #devops-logo {
+        /* transform: scale(0.8); */
+        position: absolute;
+        inset: 0;
+    }
+
     .parallax {
         height: 100vh;
 
         overflow-x: hidden;
         overflow-y: auto;
 
-        perspective: 1px;
+        perspective: 5px;
+        background-image: linear-gradient(336deg, rgba(255,226,161,1) 0%, rgba(231,114,255,1) 54%, rgba(0,212,255,1) 100%);
     }
 
     .parallax-layer {
@@ -44,21 +69,25 @@
         inset: 0;
     }
 
+    .level {
+        --scaleMod: calc(var(--depth)*0.1);
+        transform: translateZ(var(--depth)) scale(var(--scaleMod));
+        background-size: 100%;
+    }
+
     #background {
-        transform: translateZ(-2px);
-        top:50px;
-        background: red;
+        transform: translateZ(-3px) scale(1.5);
+        height: 400vh;
+        background-size: 100%;
     }
 
     #middleground {
         transform: translateZ(-1px);
-        top: 60px;
-        background-color: green;
     }
 
     #foreground {
-        transform: translateZ(0px);
-        top: 60px
+        /* transform: translateZ(0px); */
+        background-size: 100%;
     }
 
     :global(body) {
