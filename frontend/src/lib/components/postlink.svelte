@@ -1,9 +1,3 @@
-<script>
-    import Header from "./header.svelte";
-    import Postcard from "./postcard.svelte";
-    import Post from "./postcard.svelte";
-</script>
-
 <div id="gradient">
     <div id="bg">
         <a href="/posts">SEE ALL POSTS</a>
