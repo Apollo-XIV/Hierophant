@@ -13,7 +13,7 @@ export async function load() {
         throw error(404, "Could not find any posts");
     }
     return {
-        summaries: res.map((post) => ({
+        posts: res.map((post) => ({
             slug: post.slug,
             title: post.title,
             abstract: post.abstract
