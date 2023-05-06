@@ -10,7 +10,7 @@
         title: "test",
         abstract: "test",
         author: "test",
-        tags: ["#test", "#test"],
+        //tags: ["#test", "#test"],
     };
     export let enableTilt = true;
     let test = enableTilt ? 1 : 0;
@@ -38,9 +38,9 @@
     <p id="post-abstract">{post.abstract}</p>
     <p id="post-author" class="meta">{post.author}</p>
     <divider/>
-    {#each post.tags as tag}
+    <!-- {#each post.tags as tag}
     <p id="post-tags" class="meta">{tag}</p>
-    {/each}
+    {/each} -->
 </component>
 
 <style>
