@@ -1,0 +1,60 @@
+name: Deploy ui to test server
+
+on:
+  push:
+    branches:
+      - newui
+  workflow_dispatch:
+
+jobs:
+
+  build-frontend-and-push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v3
+      
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: apolloxiv
+        password: ${{ secrets.DOCKER_HUB_API_KEY }}
+      
+    - name: Build and push the Docker image
+      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      with:
+        context: ./testUI
+        tags: apolloxiv/uitest
+        push: true
+
+# Create .env file in /deploymentPackage/
+
+  create-and-upload-pkg:
+    runs-on: ubuntu-latest
+    environment: scrungly
+    steps:
+    - uses: actions/checkout@v3
+    - uses: SamKirkland/web-deploy@v1
+      with:
+        target-server: ${{ secrets.ENV_IP_ADDR }}
+        remote-user: azureuser
+        private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        destination-path: /home/deployments/pkg-${{ github.run_number }}/
+        source-path: ./deploymentPackage/
+
+# WAIT FOR ALL OTHER JOBS TO FINISH
+
+  activate-package:
+    runs-on: ubuntu-latest
+    needs: [build-frontend-and-push, create-and-upload-pkg]
+    environment: scrungly
+    steps:
+    - uses: appleboy/ssh-action@v0.1.9
+      with:
+        command_timeout: 20m
+        host: ${{ secrets.ENV_IP_ADDR }}
+        username: azureuser
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: "cd /home/deployments/pkg-${{ github.run_number }}/; sudo sh reup.sh"
