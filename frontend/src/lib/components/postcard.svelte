@@ -11,7 +11,9 @@
         abstract: "test",
         author: "test",
         tags: ["#test", "#test"],
-    }
+    };
+    export let enableTilt = true;
+    let test = enableTilt ? 1 : 0;
     const dispatch = createEventDispatcher();
     let component;
     let rotation;
@@ -24,7 +26,7 @@
         dispatch('leave');
     }
 
-    onMount(() => {VanillaTilt.init(component, {max: 1, gyroscope: false, speed: 600, perspective: 1000,})})
+    onMount(() => {VanillaTilt.init(component, {max: test, gyroscope: false, speed: 600,})});
 
 </script>
 
