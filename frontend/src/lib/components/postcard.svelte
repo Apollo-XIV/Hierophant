@@ -29,7 +29,7 @@
 
 </script>
 
-<a data-sveltekit-preload-code="hover" bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
+<a data-sveltekit-preload-code="off" bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
     <glow-effect />
     <gradient-border />
     <h3 id="post-title">{post.title}</h3>
