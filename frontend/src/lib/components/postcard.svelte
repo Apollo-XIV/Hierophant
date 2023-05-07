@@ -18,7 +18,7 @@
     let component;
 
     function hover() {
-        dispatch('hover', {target: component});
+        dispatch('hover', {reference: component});
     }
 
     function leave() {
@@ -38,7 +38,7 @@
     <link href="https://fonts.cdnfonts.com/css/grozery" rel="stylesheet" crossorigin>
 </svelte:head>
 
-<a data-sveltekit-preload-code="off" bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
+<a data-sveltekit-preload-data="off" bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
     <glow-effect />
     <gradient-border />
     <h3 id="post-title">{post.title}</h3>

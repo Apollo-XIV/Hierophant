@@ -6,7 +6,7 @@
 <div id="post">
     <PostCard post={post} on:hover on:absence/>
     <span id="divider"></span>
-    <!-- <p id="date">1/2/34</p> -->
+    <p id="date">1/2/34</p>
 </div>
 
 <style>
