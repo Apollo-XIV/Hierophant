@@ -1,9 +1,10 @@
 <script>
     import Postcard from "$lib/components/postcard.svelte";
+    export let post;
 </script>
 
 <div id="post">
-    <Postcard on:hover on:absence/>
+    <Postcard post={post} on:hover on:absence/>
     <span id="divider"></span>
     <!-- <p id="date">1/2/34</p> -->
 </div>
