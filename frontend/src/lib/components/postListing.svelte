@@ -4,7 +4,7 @@
 </script>
 
 <div id="post">
-    <PostCard post={post} on:hover on:absence/>
+    <PostCard post={post} on:hover on:leave/>
     <span id="divider"></span>
     <p id="date">1/2/34</p>
 </div>

@@ -68,7 +68,7 @@
     <h1>All Posts</h1>
     <div bind:this={postbox} id="posts">
         {#each posts as post}
-            <PostListing post={post} on:absence={hideSelector} on:hover={moveSelector}/>
+            <PostListing post={post} on:leave={hideSelector} on:hover={moveSelector}/>
         {/each}
     </div>
     <span bind:this={selector} id="selector"></span>
