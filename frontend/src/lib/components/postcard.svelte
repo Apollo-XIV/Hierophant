@@ -3,20 +3,19 @@
 <!-- // OBJ FORMAT: {title: "", abstract: "", author: "", tags:[""]} -->
 
 <script>
-    import { goto } from '$app/navigation';
     import { createEventDispatcher, onMount } from 'svelte';
     import VanillaTilt from 'vanilla-tilt';
     export let post = {
         title: "test",
         abstract: "test",
         author: "test",
+        slug: "url",
         //tags: ["#test", "#test"],
     };
     export let enableTilt = true;
-    let test = enableTilt ? 1 : 0;
+    //let tiltval = enableTilt ? 1 : 0;
     const dispatch = createEventDispatcher();
     let component;
-    let rotation;
 
     function hover() {
         dispatch('hover', {target: component});
@@ -26,13 +25,12 @@
         dispatch('leave');
     }
 
-    onMount(() => {VanillaTilt.init(component, {max: test, gyroscope: false, speed: 600,})});
+    onMount(() => {VanillaTilt.init(component, {max: (enableTilt ? 1 : 0), gyroscope: false, speed: 600,})});
 
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <a bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
-    <glow-effect data-value={rotation}/>
+    <glow-effect />
     <gradient-border />
     <h3 id="post-title">{post.title}</h3>
     <p id="post-abstract">{post.abstract}</p>
