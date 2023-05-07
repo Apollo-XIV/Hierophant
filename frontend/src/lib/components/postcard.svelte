@@ -29,6 +29,15 @@
 
 </script>
 
+<svelte:head>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-sans" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/grozery" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/grozery" rel="stylesheet" crossorigin>
+</svelte:head>
+
 <a data-sveltekit-preload-code="off" bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} id="frame" href="/posts/{post.slug}" >
     <glow-effect />
     <gradient-border />
