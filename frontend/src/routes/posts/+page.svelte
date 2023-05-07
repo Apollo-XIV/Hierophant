@@ -131,7 +131,7 @@
         background-size: 50%;
         background-position-y: -80px;
         overflow-x: hidden;
-
+        margin: 0;
     }
 
     #posts {

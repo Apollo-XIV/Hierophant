@@ -69,6 +69,7 @@
         color: white;
         line-height: 30px;
         margin: 0;
+        text-align: left;
 
     }
     
@@ -80,6 +81,8 @@
         font-style: italic;
         color: white;
         margin: 0;
+        text-align: left;
+
     }
 
     #post-author {
