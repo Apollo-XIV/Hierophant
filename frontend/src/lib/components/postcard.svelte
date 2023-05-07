@@ -31,7 +31,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<component bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} tabindex="0" id="frame" on:keydown={(e) => {if(e.key == 'Enter') {goto('/posts')}}}  on:click={() => goto('/posts')} >
+<component bind:this={component} on:focus={hover} on:mouseover={hover} on:mouseleave={leave} on:focusout={leave} tabindex="0" id="frame" on:keydown={(e) => {if(e.key == 'Enter') {goto('/posts/'+String(post.slug))}}}  on:click={() => goto('/posts/'+String(post.slug))} >
     <glow-effect data-value={rotation}/>
     <gradient-border />
     <h3 id="post-title">{post.title}</h3>
