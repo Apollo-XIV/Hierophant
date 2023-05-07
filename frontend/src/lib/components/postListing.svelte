@@ -4,7 +4,7 @@
 </script>
 
 <div id="post">
-    <Postcard post={post} on:hover on:absence/>
+    <Postcard post={post} data-sveltekit-preload-code="off" on:hover on:absence/>
     <span id="divider"></span>
     <!-- <p id="date">1/2/34</p> -->
 </div>
