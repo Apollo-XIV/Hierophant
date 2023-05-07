@@ -1,10 +1,10 @@
 <script>
-    import Postcard from "$lib/components/postcard.svelte";
+    import PostCard from "$lib/components/postcard.svelte";
     export let post;
 </script>
 
 <div id="post">
-    <Postcard post={post} data-sveltekit-preload-code="off" on:hover on:absence/>
+    <PostCard post={post} on:hover on:absence/>
     <span id="divider"></span>
     <!-- <p id="date">1/2/34</p> -->
 </div>
