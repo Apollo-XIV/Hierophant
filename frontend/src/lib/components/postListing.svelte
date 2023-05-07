@@ -1,11 +1,11 @@
 <script>
-    import Postcard from "../../components/postcard.svelte";
+    import Postcard from "$lib/components/postcard.svelte";
 </script>
 
 <div id="post">
     <Postcard on:hover on:absence/>
     <span id="divider"></span>
-    <p id="date">1/2/34</p>
+    <!-- <p id="date">1/2/34</p> -->
 </div>
 
 <style>

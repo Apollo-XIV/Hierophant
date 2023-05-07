@@ -1,5 +1,5 @@
 <script>
-    import PostListing from './postListing.svelte';
+    import PostListing from '$lib/components/postListing.svelte';
     import { onMount } from "svelte";
 
     export let data;

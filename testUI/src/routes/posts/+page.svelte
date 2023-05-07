@@ -1,5 +1,5 @@
 <script>
-    import PostListing from './postListing.svelte';
+    import PostListing from '../../../../frontend/src/lib/components/postListing.svelte';
     import { onMount } from "svelte";
 
     let numbers = [...Array(10).keys()]
