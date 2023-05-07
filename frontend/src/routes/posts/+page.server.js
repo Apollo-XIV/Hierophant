@@ -16,7 +16,8 @@ export async function load() {
         summaries: res.map((post) => ({
             slug: post.slug,
             title: post.title,
-            abstract: post.abstract
+            abstract: post.abstract,
+            author: post.author,
         }))
     };
 }
