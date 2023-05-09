@@ -1,5 +1,4 @@
 <script>
-    import Markdown from 'svelte-exmarkdown';
     export let data;
     let md = data.content;
 </script>
