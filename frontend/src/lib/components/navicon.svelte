@@ -51,6 +51,7 @@
     popup {
         display: none;
         overflow: hidden;
+        height: 100vh;
         position: fixed;
         inset: 0;
         background-color: rgba(2, 1, 7, 0.615);
