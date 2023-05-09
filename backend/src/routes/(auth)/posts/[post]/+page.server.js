@@ -48,7 +48,8 @@ export const actions = {
                     title: data.title,
                     slug: data.slug,
                     abstract: data.abstract,
-                    url: `posts/${data.slug}`
+                    url: `posts/${data.slug}`,
+                    author: "Alex Crease",
                 }
             })
             prisma.$disconnect();
@@ -78,7 +79,8 @@ export const actions = {
                 title: data.title,
                 slug: data.slug,
                 abstract: data.abstract,
-                url: `posts/${data.slug}`
+                url: `posts/${data.slug}`,
+                author: "Alex Crease",
             }
         })
         prisma.$disconnect();
