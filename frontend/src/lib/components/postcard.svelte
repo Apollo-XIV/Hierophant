@@ -65,6 +65,7 @@
         width: 100%;
         flex-basis: 800px;
         gap: 5px;
+        text-decoration: none;
     }
 
     #post-title {

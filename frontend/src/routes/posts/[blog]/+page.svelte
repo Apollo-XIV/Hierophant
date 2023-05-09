@@ -10,14 +10,12 @@
     <link rel="preload" href="https://fonts.cdnfonts.com/css/monosphere-personal-use" as="font" type="font/woff2" crossorigin/>
     <link rel="preload" href="https://fonts.cdnfonts.com/css/redaction"as="font" type="font/woff2" crossorigin/>
 </svelte:head>
-
-<div id="abstract">{data.res.abstract}</div>
-<div class="content-styling">
-    <a href="/posts">&lt- Return to Posts</a>
-    {@html md}
+<div id="main">
+    <div class="content-styling">
+        <a href="/posts">&lt- Return to Posts</a>
+        {@html md}
+    </div>
 </div>
-
-
 
 <style>
     @import url('https://fonts.cdnfonts.com/css/futura-std-4');
@@ -25,23 +23,13 @@
     @import url('https://fonts.cdnfonts.com/css/monosphere-personal-use');
     @import url('https://fonts.cdnfonts.com/css/redaction');
 
-    #abstract {
-        font-family: 'Redaction 70', 'Courier New', Courier, monospace;
-        font-size: 250px;
+    #main {
         position: absolute;
-        top: 30px;
-        right: 10px;
-        color: white;
-        z-index: -1;
-        margin: 0;
-        overflow-x: visible wrap;
-        overflow-y: hidden;
-        width: 60vw;
-        text-align: right;
-        max-height: 100%;
-        opacity: 0.4;
-        margin: 0;
-        line-height: 200px;
+        inset: 0;
+        background: #1F1E20;
+        background-image: url('/perlin.png');
+        background-size: 50%;
+        background-position-y: -80px;
     }
 
     .content-styling {
@@ -55,23 +43,23 @@
         margin-bottom: 100px;
     }
 
-    .content-styling :global(a) {
+    .content-styling a {
         font-family: 'Futura Std';
         color: white;
         font-size: larger;
     }
 
-    .content-styling :global(p) {
+    .content-styling p {
         text-align: justify;
     }
 
-    .content-styling :global(p),:global(li) {
+    .content-styling p,li {
         font-family: 'Futura Std';
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
     }
 
-    .content-styling :global(h1) {
+    .content-styling h1 {
         font-family: 'Monosphere Personal Use';
         text-align: center;
         padding-top: 30px;
@@ -79,23 +67,23 @@
         background-color: #00000077;
     }
 
-    .content-styling :global(ul li:before) {
+    .content-styling ul li:before {
         content: '\2014';
         position: absolute;
         margin-left: -20px;
     }
 
-    .content-styling :global(ul),:global(li) {
+    .content-styling ul,li {
         list-style-type: none;
     }
 
-    .content-styling :global(h2),:global(h3),:global(h4) {
+    .content-styling h2,h3,h4 {
         font-family: 'IBM Plex Sans Kr';
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
     }
 
-    .content-styling :global(img) {
+    .content-styling img {
         max-width: 100%;
         max-height: 65vh;
         width: auto;
