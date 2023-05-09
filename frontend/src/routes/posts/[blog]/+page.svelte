@@ -10,12 +10,14 @@
     <link rel="preload" href="https://fonts.cdnfonts.com/css/monosphere-personal-use" as="font" type="font/woff2" crossorigin/>
     <link rel="preload" href="https://fonts.cdnfonts.com/css/redaction"as="font" type="font/woff2" crossorigin/>
 </svelte:head>
+
 <div id="main">
     <div class="content-styling">
         <a href="/posts">&lt- Return to Posts</a>
         {@html md}
     </div>
 </div>
+
 
 <style>
     @import url('https://fonts.cdnfonts.com/css/futura-std-4');
@@ -24,8 +26,6 @@
     @import url('https://fonts.cdnfonts.com/css/redaction');
 
     #main {
-        position: absolute;
-        inset: 0;
         background: #1F1E20;
         background-image: url('/perlin.png');
         background-size: 50%;
@@ -43,23 +43,23 @@
         margin-bottom: 100px;
     }
 
-    .content-styling a {
+    .content-styling :global(a) {
         font-family: 'Futura Std';
         color: white;
         font-size: larger;
     }
 
-    .content-styling p {
+    .content-styling :global(p) {
         text-align: justify;
     }
 
-    .content-styling p,li {
+    .content-styling :global(p),:global(li) {
         font-family: 'Futura Std';
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
     }
 
-    .content-styling h1 {
+    .content-styling :global(h1) {
         font-family: 'Monosphere Personal Use';
         text-align: center;
         padding-top: 30px;
@@ -67,23 +67,23 @@
         background-color: #00000077;
     }
 
-    .content-styling ul li:before {
+    .content-styling :global(ul li:before) {
         content: '\2014';
         position: absolute;
         margin-left: -20px;
     }
 
-    .content-styling ul,li {
+    .content-styling :global(ul),:global(li) {
         list-style-type: none;
     }
 
-    .content-styling h2,h3,h4 {
+    .content-styling :global(h2),:global(h3),:global(h4) {
         font-family: 'IBM Plex Sans Kr';
         box-shadow: 5px 5px 86px 20px #000;
         background-color: #00000077;
     }
 
-    .content-styling img {
+    .content-styling :global(img) {
         max-width: 100%;
         max-height: 65vh;
         width: auto;
