@@ -84,7 +84,7 @@
         position: relative;
         padding-top: 170px ;
         text-align: center;
-        text-shadow: 0 0 50px #000000a3;
+        text-shadow: 0 0 50px #000000c1;
     }
 
     #first-copy {
