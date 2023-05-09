@@ -29,7 +29,7 @@
             <i class="fa fa-github"></i> Sign in with Github
         </a>
         <p>Not supposed to be here?</p>
-        <a href="https://hierophant.dev">Go to Hierophant -></a> 
+        <a href="https://hierophant.dev" style="text-decoration: none; color: white;">Go to Hierophant -></a> 
     </div>
 </div>
 
