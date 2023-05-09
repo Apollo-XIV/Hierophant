@@ -11,7 +11,7 @@
     let innerWidth;
 
     async function transitionBar() {
-        let dispVar = 350 - scrollPosition;
+        let dispVar = 350 - $scrollPosition;
         if (dispVar < 120) {
             postbox.style.setProperty('--displacement', "120px");
             return;

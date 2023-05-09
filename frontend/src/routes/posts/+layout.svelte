@@ -13,7 +13,7 @@
     }
 
     async function handleFade() {
-        if (scrollPosition < 100) {
+        if ($scrollPosition < 100) {
             header.style.setProperty('--opacity', "0");
         } else {
             header.style.setProperty('--opacity', "1");
@@ -24,6 +24,8 @@
         parseScroll();
         //moveSelector();
     })
+
+    $: console.log($scrollPosition);
 
 </script>
 <svelte:window bind:innerWidth bind:innerHeight />
