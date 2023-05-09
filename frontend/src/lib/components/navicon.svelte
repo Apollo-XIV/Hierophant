@@ -29,6 +29,7 @@
         background-color: white;
         border-radius: 12px;
         padding: 10px;
+        filter: drop-shadow(0 0 10px #000);
     }
 
     options a {
@@ -55,6 +56,7 @@
         background-color: rgba(2, 1, 7, 0.615);
         align-items: center;
         justify-content: center;
+        z-index: 10;
     }
 
     icon {
