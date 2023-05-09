@@ -77,7 +77,9 @@
     h1 {
         color: white;
         font-family: 'IBM Plex Sans';
-        margin-top: 300px ;
+        margin-top: 200px ;
+        text-transform: capitalize;
+        font-weight: bold;
     }
 
     :global(body) {
