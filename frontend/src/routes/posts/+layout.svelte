@@ -25,8 +25,6 @@
         //moveSelector();
     })
 
-    $: console.log($scrollPosition);
-
 </script>
 <svelte:window bind:innerWidth bind:innerHeight />
 

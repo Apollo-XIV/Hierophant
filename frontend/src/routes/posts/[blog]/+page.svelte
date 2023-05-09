@@ -63,6 +63,7 @@
 
     .content-styling :global(ul),:global(li) {
         list-style-type: none;
+        text-align: left;
     }
 
     .content-styling :global(h2),:global(h3),:global(h4) {
