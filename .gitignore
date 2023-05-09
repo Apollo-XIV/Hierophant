@@ -10,3 +10,4 @@ frontend/.svelte-kit
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vscode/settings.json
+frontend/src/routes/posts/test/+page.svelte

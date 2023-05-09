@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { scrollPosition } from "$lib/stores/scroll.js";
+    import NavIcon from "$lib/components/navicon.svelte";
 
     let mainStatus;
     let header;
@@ -28,7 +29,18 @@
 </script>
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<header bind:this={header}></header>
+<svelte:head>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-sans" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/grozery" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/grozery" rel="stylesheet" crossorigin>
+</svelte:head>
+
+<header bind:this={header}>
+    <NavIcon />
+</header>
 <main bind:this={mainStatus} on:scroll={parseScroll}>
     <slot />
 </main>
