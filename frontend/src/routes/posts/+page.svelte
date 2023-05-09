@@ -45,7 +45,7 @@
         //moveSelector();
     })
 
-    $: $scrollPosition, transitionBar();
+    $: if (($scrollPosition) && (postbox != null)) {transitionBar()};
 
 </script>
 <svelte:window bind:innerWidth bind:innerHeight />
