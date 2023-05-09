@@ -57,8 +57,8 @@
 
     .content-styling :global(ul li:before) {
         content: '\2014';
-        position: absolute;
-        margin-left: -20px;
+        position: relative;
+        margin-right: 10px;
     }
 
     .content-styling :global(ul),:global(li) {

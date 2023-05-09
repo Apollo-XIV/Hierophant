@@ -1,14 +1,14 @@
 <script>
     import { onMount } from "svelte";
+    import { scrollPosition } from "$lib/stores/scroll.js";
 
     let mainStatus;
     let header;
-    let scrollPosition;
     let innerHeight;
     let innerWidth;
 
     async function parseScroll() {
-        scrollPosition = mainStatus.scrollTop;
+        $scrollPosition = mainStatus.scrollTop;
         handleFade();
     }
 

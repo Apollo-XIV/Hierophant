@@ -1,32 +1,16 @@
 <script>
     import PostListing from '$lib/components/postListing.svelte';
     import { onMount } from "svelte";
+    import { scrollPosition } from "$lib/stores/scroll.js"
 
     export let data;
     let posts = data.summaries;
-    let mainStatus;
-    let header;
-    let scrollPosition;
     let postbox;
     let selector;
     let innerHeight;
     let innerWidth;
 
-    async function parseScroll() {
-        scrollPosition = mainStatus.scrollTop;
-        handleFade();
-        transitionBar();
-    }
-
-    async function handleFade() {
-        if (scrollPosition < 100) {
-            header.style.setProperty('--opacity', "0");
-        } else {
-            header.style.setProperty('--opacity', "1");
-        }
-    }
-
-    async function transitionBar() {
+    export async function transitionBar() {
         let dispVar = 350 - scrollPosition;
         if (dispVar < 120) {
             postbox.style.setProperty('--displacement', "120px");
@@ -35,30 +19,12 @@
         postbox.style.setProperty('--displacement', String(dispVar)+"px");
     }
 
-    async function moveSelector(event) {
-        let posValTop = event.detail.reference.getBoundingClientRect().top;
-        let posValBtm = innerHeight - event.detail.reference.getBoundingClientRect().bottom;
-        
-        if (posValTop < 120) {
-            posValTop = 120;
-        }
-
-        if (posValBtm < 50) {
-            posValBtm = 52;
-        }
-        selector.style.setProperty('opacity', "1");
-        selector.style.setProperty('top', String(posValTop)+"px");
-        selector.style.setProperty('bottom', String(posValBtm)+"px");
-    }
-
-    async function hideSelector(event) {
-        selector.style.setProperty('opacity', "0");
-    }
-
     onMount(() => {
         parseScroll();
         //moveSelector();
     })
+
+    $: $scrollPosition, transitionBar();
 
 </script>
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -78,7 +44,7 @@
         color: white;
         font-family: 'IBM Plex Sans';
         margin-top: 200px ;
-        text-transform: capitalize;
+        text-transform: uppercase;
         font-weight: bold;
     }
 
