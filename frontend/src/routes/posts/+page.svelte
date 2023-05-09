@@ -74,6 +74,12 @@
 
 <style>
 
+    h1 {
+        color: white;
+        font-family: 'IBM Plex Sans';
+        margin-top: 300px ;
+    }
+
     :global(body) {
         background-color: #1F1E20;
         background-image: url('/perlin.png');

@@ -24,13 +24,6 @@
     @import url('https://fonts.cdnfonts.com/css/monosphere-personal-use');
     @import url('https://fonts.cdnfonts.com/css/redaction');
 
-    #main {
-        background: #1F1E20;
-        background-image: url('/perlin.png');
-        background-size: 50%;
-        background-position-y: -80px;
-    }
-
     .content-styling {
         color: white;
         max-width: 1200px;
