@@ -62,7 +62,6 @@
         flex-flow: row wrap;
         align-items: stretch;
         max-width: 800px;
-        min-width: fit-content;
         width: 100%;
         flex-basis: 800px;
         gap: 5px;
