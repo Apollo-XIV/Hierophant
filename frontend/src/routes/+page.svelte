@@ -72,7 +72,7 @@
         right: 0;
         z-index: 1;
         align-self: center;
-        filter: drop-shadow(0 0 50px #00000036);
+        filter: drop-shadow(0 0 50px #00000086);
         height: 500px;
         outline: magenta;
     }
@@ -84,7 +84,7 @@
         position: relative;
         padding-top: 170px ;
         text-align: center;
-        text-shadow: 0 0 50px #00000036;
+        text-shadow: 0 0 50px #000000a3;
     }
 
     #first-copy {
