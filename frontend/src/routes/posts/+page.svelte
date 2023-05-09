@@ -16,7 +16,6 @@
             postbox.style.setProperty('--displacement', "120px");
             return;
         }
-        console.log(postbox);
         postbox.style.setProperty('--displacement', String(dispVar)+"px");
     }
 
@@ -39,11 +38,6 @@
     async function hideSelector(event) {
         selector.style.setProperty('opacity', "0");
     }
-
-    onMount(() => {
-        parseScroll();
-        //moveSelector();
-    })
 
     $: if (($scrollPosition) && (postbox != null)) {transitionBar()};
 
