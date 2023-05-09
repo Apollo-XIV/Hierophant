@@ -39,6 +39,7 @@
         font-family: 'Futura Std';
         color: white;
         font-size: larger;
+        text-align: left;
     }
 
     .content-styling :global(p) {
@@ -83,9 +84,6 @@
         box-shadow: 5px 5px 86px 20px #000;
         margin-top: 50px;
         margin-bottom: 10px;
-        -webkit-box-shadow: 0px 0px 65px 4px rgba(168,168,168,0.29);
-        -moz-box-shadow: 0px 0px 65px 4px rgba(168,168,168,0.29);
-        box-shadow: 0px 0px 65px 4px rgba(168,168,168,0.29);
     }
 
 </style>
