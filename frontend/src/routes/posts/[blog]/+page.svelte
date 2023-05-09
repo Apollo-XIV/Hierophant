@@ -55,16 +55,12 @@
 
     .content-styling :global(p),:global(li) {
         font-family: 'Futura Std';
-        box-shadow: 5px 5px 86px 20px #000;
-        background-color: #00000077;
     }
 
     .content-styling :global(h1) {
         font-family: 'Monosphere Personal Use';
         text-align: center;
         padding-top: 30px;
-        box-shadow: 5px 5px 86px 20px #000;
-        background-color: #00000077;
     }
 
     .content-styling :global(ul li:before) {
@@ -79,8 +75,6 @@
 
     .content-styling :global(h2),:global(h3),:global(h4) {
         font-family: 'IBM Plex Sans Kr';
-        box-shadow: 5px 5px 86px 20px #000;
-        background-color: #00000077;
     }
 
     .content-styling :global(img) {
