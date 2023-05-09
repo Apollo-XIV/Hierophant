@@ -81,7 +81,7 @@
         align-self: center;
         display: block;
         border-radius: 30px;
-        box-shadow: 5px 5px 86px 20px #000;
+        box-shadow: 5px 5px 86px 20px #00000051;
         margin-top: 50px;
         margin-bottom: 10px;
     }
