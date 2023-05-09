@@ -4,15 +4,17 @@
 </script>
 <svelte:head>
 	<title>{data.res.title} | Hierophant</title> 
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/futura-std-4" as="font" type="font/woff2" crossorigin/>
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/ibm-plex-sans-kr" as="font" type="font/woff2" crossorigin/>
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/monosphere-personal-use" as="font" type="font/woff2" crossorigin/>
-    <link rel="preload" href="https://fonts.cdnfonts.com/css/redaction"as="font" type="font/woff2" crossorigin/>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-sans" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-sans" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/grozery" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/grozery" rel="stylesheet" crossorigin>
 </svelte:head>
 
 <div id="main">
     <div class="content-styling">
-        <a href="/posts">&lt- Return to Posts</a>
+        <a href="/posts"><p>&lt- Return to Posts</p></a>
         {@html md}
     </div>
 </div>
@@ -36,8 +38,9 @@
     }
 
     .content-styling :global(a) {
-        font-family: 'Futura Std';
+        font-family: 'IBM Plex Mono';
         color: white;
+        font-style: italic;
         font-size: larger;
         text-align: left;
     }
@@ -47,11 +50,13 @@
     }
 
     .content-styling :global(p),:global(li) {
-        font-family: 'Futura Std';
+        font-family: 'IBM Plex Sans';
     }
 
     .content-styling :global(h1) {
-        font-family: 'Monosphere Personal Use';
+        font-family: 'IBM Plex Sans';
+        font-weight: bolder;
+        text-transform: uppercase;
         text-align: center;
         padding-top: 30px;
     }
@@ -68,7 +73,7 @@
     }
 
     .content-styling :global(h2),:global(h3),:global(h4) {
-        font-family: 'IBM Plex Sans Kr';
+        font-family: 'IBM Plex Sans';
         text-align: left;
     }
 
