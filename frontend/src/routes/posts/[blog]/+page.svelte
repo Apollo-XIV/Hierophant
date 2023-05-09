@@ -14,7 +14,7 @@
 
 <div id="main">
     <div class="content-styling">
-        <a href="/posts">&lt- Return to Posts</a>
+        <p><a href="/posts">&lt- Return to Posts</a></p>
         {@html md}
     </div>
 </div>
@@ -43,6 +43,7 @@
         font-style: italic;
         font-size: larger;
         text-align: justify;
+        text-decoration: none;
     }
 
     .content-styling :global(p) {
