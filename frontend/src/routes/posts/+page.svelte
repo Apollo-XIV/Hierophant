@@ -16,6 +16,7 @@
             postbox.style.setProperty('--displacement', "120px");
             return;
         }
+        console.log(postbox);
         postbox.style.setProperty('--displacement', String(dispVar)+"px");
     }
 
