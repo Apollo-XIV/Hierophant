@@ -69,6 +69,7 @@
 
     .content-styling :global(h2),:global(h3),:global(h4) {
         font-family: 'IBM Plex Sans Kr';
+        text-align: left;
     }
 
     .content-styling :global(img) {
