@@ -13,6 +13,7 @@ model posts {
   slug     String @unique
   title    String
   url      String
+  author   String
 }
 
 model users {
